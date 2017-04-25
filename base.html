@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/base.css">
+
+	<title>UI Kit | Base</title>
+
+</head>
+
+<body>
+
+<!-- BUTTONS SECTION -->
+
+	<section class="container">
+
+		<button type="button" class="btn btn--lg">Load more</button>
+		<button type="submit" class="btn btn--lg rc">Sign Up</button>
+		<button type="button" class="btn btn--lg rnd">Sign In</button>
+		<button type="button" class="btn btn--lg rnd hollow">Logout</button>
+		<button type="button" class="btn btn-cir--lg"></button>
+
+		<button type="button" class="btn btn--md narrow--md">Learn more</button>
+		<button type="button" class="btn btn--md rc">Buy now</button>
+		<button type="button" class="btn btn--md rnd">Order now</button>
+		<button type="button" class="btn btn--md rnd hollow">Install</button>
+		<button type="button" class="btn btn--md rc"></button>
+		<button type="button" class="btn btn--cir--md"></button>
+		<a href="#" class="btn btn--md arrow--md">
+			<span class="arrow--md__text">Next</span>
+		</a>
+
+		<button type="button" class="btn btn--sm">Start</button>
+		<button type="button" class="btn btn--sm rc">Download</button>
+		<button type="button" class="btn btn--sm rnd">Share</button>
+		<button type="button" class="btn btn--sm rnd hollow">Free trial</button>
+		<button type="button" class="btn btn--rec--sm rc"></button>
+		<button type="button" class="btn btn--cir--sm"></button>
+		<div class="btn-group">
+			<button type="button" class="btn btn--sm">1</button>
+			<button type="button" class="btn btn--sm">2</button>
+		</div>
+		<button type="button" class="btn btn--sm rc arrow">Forward</button>
+
+	</section>
+
+	<section class="container">
+
+		<div class="btn-group">
+			<button type="button" class="btn">1</button>
+			<button type="button" class="btn">2</button>
+			<button type="button" class="btn">3</button>
+		</div>
+
+	</section>
+
+<!-- INPUTS SECTION     -->
+
+	<section class="container container--w-stretch">
+
+		<form action="/action_page.php" method="post" class="form">
+			<input type="text" class="input" placeholder="E-mail" required="true">
+		</form>
+
+		<form action="/action_page.php" method="post" class="form">
+			<input type="text" class="input" placeholder="E-mail" value="hello" required="true" autofocus="true">
+		</form>
+
+		<form action="" class="form form--textarea">
+			<textarea	name="comment" placeholder="Write your comment here..." class="input input--empty input__textarea"></textarea>
+			<textarea	name="comment" class="input input__textarea">Great stuff!</textarea>
+		</form>
+
+	</section>
+
+<!-- DROPDOWN + RADIO + CHECKBOX + SLIDERS + TOOLTIP SECTION   -->
+
+	<section class="container container--w-stretch container__state-input">
+
+		<div class="dropdown">
+			<input type="checkbox" id="select">
+			<label for="select" class="dropdown__lable">Select country</label>
+			<ul class="dropdown__list">
+				<li class="dropdown__list-item"><a href="#" class="dropdown__list-item--clickable">USA</a></li>
+				<li class="dropdown__list-item"><a href="#" class="dropdown__list-item--clickable">Canada</a></li>
+				<li class="dropdown__list-item"><a href="#" class="dropdown__list-item--clickable">Germany</a></li>
+			</ul>
+		</div>
+
+		<form>
+			<ul class="radiobuttons">
+				<li class="radiobuttons__item">
+					<radiogroup>
+						<ul>
+							<li class="radiobuttons__item">
+								<input type="radio" name="state" id="rb-off" class="radio">
+								<label for="rb-off" class="radio__label">Radiobutton Off</label>
+							</li>
+							<li class="radiobuttons__item">
+								<input type="radio" name="state" id="rb-on" checked="true">
+								<label for="rb-on" class="radio__label">Radiobutton On</label>
+							</li>
+						</ul>
+					</radiogroup>
+				</li>
+
+				<li class="radiobuttons__item">
+					<input type="radio" name="state" id="rb-dis" disabled="true">
+					<label for="rb-dis" class="radio__label is-disabled">Radiobutton Disabled</label>
+				</li>
+			</ul>
+
+			<ul class="checkboxes">
+				<li class="checkboxes__item">
+					<input type="checkbox" name="chb-off" id="chb-off" selected="false">
+					<label for="chb-off" class="checkbox__label">Checkbox Off</label>
+				</li>
+				<li class="checkboxes__item">
+					<input type="checkbox" name="chb-on" id="chb-on" checked="true">
+					<label for="chb-on" class="checkbox__label">Checkbox On</label>
+				</li>
+				<li class="checkboxes__item">
+					<input type="checkbox" name="chb-dis" id="chb-dis" disabled="true">
+					<label for="chb-dis" class="checkbox__label is-disabled">Checkbox Disabled</label>
+				</li>
+			</ul>
+		</form>
+
+		<div class="switchers">
+
+			<form action="" class="sw">
+			<input type="checkbox" name="switcher" id="switcher" class="switcher">
+			<label for="switcher" class="switcher__toggler">
+				<span class="switcher__toggler--on handler">On</span>
+				<span class="switcher__toggler--off handler">Off</span>
+			</label>
+			</form>
+
+			<form action="" class="sw">
+			<input type="checkbox" name="switcher" id="switcher-2" class="switcher" checked="true">
+			<label for="switcher-2" class="switcher__toggler">
+				<span class="switcher__toggler--on handler">On</span>
+				<span class="switcher__toggler--off handler">Off</span>
+			</label>
+			</form>
+
+			<form action="" class="sw">
+			<input type="checkbox" name="switcher" id="switcher-3" class="switcher">
+			<label for="switcher-3" class="switcher__toggler is-inverted">
+				<span class="switcher__toggler--on handler">On</span>
+				<span class="switcher__toggler--off handler">Off</span>
+			</label>
+			</form>
+
+			<form action="" class="sw">
+			<input type="checkbox" name="switcher" id="switcher-4" class="switcher" checked="true">
+			<label for="switcher-4" class="switcher__toggler is-inverted">
+				<span class="switcher__toggler--on handler">On</span>
+				<span class="switcher__toggler--off handler">Off</span>
+			</label>
+			</form>
+
+		</div>
+
+		<div>
+			<div class="range">
+				<div class="range__amount"></div>
+			</div>
+
+			<div class="range">
+				<input type="range">
+			</div>
+
+			<div class="amount">
+				<div class="amount__level"></div>
+			</div>
+
+			<div class="progress">
+				<div class="progress__level" style="width: 54%;" data-width="54%"></div>
+			</div>
+
+			<div class="tooltips">
+				<div class="tooltip tooltip--top">Top tooltip</div>
+				<div class="tooltip tooltip--left">Left tooltip</div>
+				<div class="tooltip tooltip--right">Right tooltip</div>
+				<div class="tooltip tooltip--bottom">Bottom tooltip</div>
+			</div>
+
+		</div>
+
+	</section>
+
+<!-- SLIDERS SECTION    -->
+
+	<section class="container">
+
+
+
+	</section>
+
+<!-- TOOLTIP SECTION    -->
+
+<!-- PROGRESS SECTION   -->
+
+<!-- PAGINATION SECTION -->
+
+<!-- FILTERS SECTION    -->
+
+<!-- POPOVER SECTION    -->
+
+</body>
+
+</html>
