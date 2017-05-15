@@ -284,7 +284,7 @@ li {
   cursor: pointer;
   display: inline-block;
   min-width: 64px;
-  background-image: url(/assets/icons/select-arrow.svg);
+  background-image: url(./assets/icons/select-arrow.svg);
   background-size: 9px 5px;
   background-position: 90% center;
   background-repeat: no-repeat; }
