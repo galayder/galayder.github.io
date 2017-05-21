@@ -83,6 +83,7 @@ body {
 .component {
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   padding: 16px 20px 16px 0;
   margin-bottom: 10px;
   border-radius: 3px;
@@ -105,7 +106,7 @@ body {
       flex: 0 1 100%; }
 
 .component__title, .signup__title {
-  margin: 6px 0;
+  margin-bottom: 6px;
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase; }
@@ -163,6 +164,45 @@ body {
   -ms-flex-pack: center;
       justify-content: center; }
 
+.component__mark {
+  transform-origin: 50% 200%;
+  transform: rotate(-45deg);
+  box-sizing: content-box;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  line-height: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-bottom: 20px solid #FF9000;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  height: 0;
+  width: 40px; }
+  .component__mark::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -20px;
+    top: 20px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid #fd7722; }
+  .component__mark::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    bottom: -23px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid #fd7722; }
+
 [type="text"],
 [type="tel"],
 [type="submit"] {
@@ -214,6 +254,9 @@ body {
   .def__extender,
   .component__signup {
     display: none; }
+  .component--hide {
+    display: -ms-flexbox;
+    display: flex; }
   .popup {
     background-color: #ffffff;
     border-radius: 0;
