@@ -70,23 +70,38 @@ body {
 }
 
 .popup__dismiss {
+  position: relative;
+  width: 11px;
+  height: 11px;
   margin-left: auto;
   margin-right: 20px;
-  width: 16px;
-  height: 2px;
-  transform-origin: 50%;
-  transform: rotate(45deg);
-  background-color: #666666;
+  overflow: hidden;
+  cursor: pointer;
 }
 
+.popup__dismiss:hover::before,
+.popup__dismiss:hover::after {
+  background: #cccccc;
+}
+
+.popup__dismiss::before,
 .popup__dismiss::after {
   content: '';
   position: absolute;
-  right: 0;
-  width: 16px;
   height: 2px;
-  background-color: #666666;
-  transform: rotate(90deg);
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #666666;
+}
+
+.popup__dismiss::before {
+  transform: rotate(45deg);
+}
+
+.popup__dismiss::after {
+  transform: rotate(-45deg);
 }
 
 .component {
@@ -252,6 +267,7 @@ body {
     background-color: #ffffff;
     border-radius: 0;
     margin-top: 0;
+    max-width: 500px;
   }
 
   .popup__content {
@@ -266,20 +282,43 @@ body {
 
   .def {
     font-size: 18px;
+    margin: auto;
   }
 
-  .dismiss {
+  .popup__dismiss {
     position: absolute;
+    width: 14px;
+    height: 14px;
     right: 0;
-    margin-right: 15px;
-    width: 20px;
-    background-color: #424242;
-    opacity: 0.54;
+    margin-left: auto;
+    margin-right: 20px;
+    overflow: hidden;
+    cursor: pointer;
   }
 
-  .dismiss::after {
-    width: 20px;
-    background-color: #424242;
+  .popup__dismiss:hover::before,
+  .popup__dismiss:hover::after {
+    background: #cccccc;
+  }
+
+  .popup__dismiss::before,
+  .popup__dismiss::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #666666;
+  }
+
+  .popup__dismiss::before {
+    transform: rotate(45deg);
+  }
+
+  .popup__dismiss::after {
+    transform: rotate(-45deg);
   }
 
   .component {
