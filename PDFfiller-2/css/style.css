@@ -60,8 +60,8 @@ body {
   position: relative;
   width: 11px;
   height: 11px;
-  margin-left: auto;
   margin-right: 20px;
+  margin-left: auto;
   overflow: hidden;
   cursor: pointer; }
   .popup__dismiss:hover::before, .popup__dismiss:hover::after {
@@ -76,9 +76,11 @@ body {
     margin-top: -1px;
     background: #666666; }
   .popup__dismiss::before {
-    transform: rotate(45deg); }
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg); }
   .popup__dismiss::after {
-    transform: rotate(-45deg); }
+    -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg); }
 
 .component {
   display: -ms-flexbox;
@@ -165,8 +167,10 @@ body {
       justify-content: center; }
 
 .component__mark {
-  transform-origin: 50% 200%;
-  transform: rotate(-45deg);
+  -ms-transform-origin: 50% 200%;
+      transform-origin: 50% 200%;
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
   box-sizing: content-box;
   position: absolute;
   top: -3px;
@@ -258,6 +262,7 @@ body {
     display: -ms-flexbox;
     display: flex; }
   .popup {
+    position: relative;
     background-color: #ffffff;
     border-radius: 0;
     margin-top: 0;
@@ -276,7 +281,6 @@ body {
     width: 14px;
     height: 14px;
     right: 0;
-    margin-left: auto;
     margin-right: 20px;
     overflow: hidden;
     cursor: pointer; }
@@ -292,9 +296,11 @@ body {
       margin-top: -1px;
       background: #666666; }
     .popup__dismiss::before {
-      transform: rotate(45deg); }
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
     .popup__dismiss::after {
-      transform: rotate(-45deg); }
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
   .component {
     -ms-flex: 1 1 100%;
         flex: 1 1 100%;
