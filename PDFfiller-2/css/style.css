@@ -24,7 +24,7 @@ body {
   overflow: hidden;
   box-shadow: 0 2px 13px 0 #444444; }
 
-.popup__def {
+.popup__header {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -33,21 +33,13 @@ body {
   background-color: #fdfdfd;
   border-bottom: 1px solid #dddddd; }
 
-.def__tag {
+.popup__tag {
   margin-left: 20px; }
 
-.def {
+.popup__title {
   padding-left: 12px;
   font-size: 20px;
   color: #343434; }
-
-.def--iconic::before {
-  content: '';
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  background-image: url(/);
-  background-size: cover; }
 
 .popup__content {
   display: -ms-flexbox;
@@ -91,14 +83,26 @@ body {
   border-radius: 3px;
   border: 1px solid #cccccc;
   background-color: #ffffff;
-  -ms-flex: 1 1 calc(50% - 10px);
-      flex: 1 1 calc(50% - 10px);
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: calc(50% - 10px);
+      flex-basis: calc(50% - 10px);
+  max-width: calc(50% - 10px);
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
   margin-left: 5px;
   margin-right: 5px; }
+
+.component__signup {
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  max-width: 100%; }
 
 .component--hide {
   display: none; }
@@ -118,38 +122,27 @@ body {
   line-height: 17px; }
 
 .component__tag {
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex: 0 0 44px;
       flex: 0 0 44px;
   margin: auto 20px;
+  text-align: center; }
+
+.signup__tag {
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
   -ms-flex-align: center;
       align-items: center; }
 
-.signup__tag {
-  -ms-flex: 0 0 44px;
-      flex: 0 0 44px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-
 .signup__title {
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 6px; }
+  margin: auto auto;
+  padding-top: 6px;
+  text-align: center; }
 
 .component__def {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
+  -ms-flex: 0 1 100%;
+      flex: 0 1 100%; }
 
 .component__text {
   font-size: 13px;
@@ -157,14 +150,15 @@ body {
   color: #666666; }
 
 .component__result {
-  font-family: 'Sacramento', cursive;
-  font-size: 30px;
+  -ms-flex: 0 0 173px;
+      flex: 0 0 173px;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 71px;
   margin: 0;
   padding: 0;
-  height: 71px;
-  width: 173px;
-  -ms-flex-pack: center;
-      justify-content: center; }
+  font-family: 'Sacramento', cursive;
+  font-size: 28px; }
 
 .component__mark {
   -ms-transform-origin: 50% 200%;
@@ -254,8 +248,8 @@ body {
     background: #fd7722; }
 
 @media only screen and (max-width: 767px) {
-  .def__tag,
-  .def__extender,
+  .popup__tag,
+  .title--hide,
   .component__signup {
     display: none; }
   .component--hide {
@@ -269,20 +263,20 @@ body {
     max-width: 500px; }
   .popup__content {
     margin: 0; }
-  .popup__def {
+  .popup__header {
     -ms-flex-pack: center;
         justify-content: center;
     margin-bottom: 15px; }
-  .def {
+  .popup__title {
     font-size: 18px;
-    margin: auto; }
+    margin: auto;
+    margin: 0; }
   .popup__dismiss {
     position: absolute;
     width: 14px;
     height: 14px;
     right: 0;
     margin-right: 20px;
-    overflow: hidden;
     cursor: pointer; }
     .popup__dismiss:hover::before, .popup__dismiss:hover::after {
       background: #cccccc; }
@@ -291,8 +285,8 @@ body {
       position: absolute;
       height: 2px;
       width: 100%;
-      top: 50%;
       left: 0;
+      top: 50%;
       margin-top: -1px;
       background: #666666; }
     .popup__dismiss::before {
@@ -302,8 +296,13 @@ body {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg); }
   .component {
-    -ms-flex: 1 1 100%;
-        flex: 1 1 100%;
+    -ms-flex-positive: 0;
+        flex-grow: 0;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    max-width: 100%;
     -ms-flex-pack: center;
         justify-content: center;
     margin-left: 15px;
