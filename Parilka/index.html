@@ -1,0 +1,181 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Parilka Bar | Мы попарились за вас)</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+</head>
+
+<body>
+
+
+
+<!--HERO-->
+
+<section class="section hero">
+    
+    <div class="hero__contact">
+        <a class="link" href="tel:+380672097977">+380 67 209-7977</a>
+    </div>
+
+    <img class="hero__logo" src="assets/img/logo.svg" alt="">
+
+    <div class="hero__title">
+        <h1>Мы попарились за вас &mdash; наслаждайтесь<br>
+        вкусным и качественным
+        паром. </h1>
+    </div>
+
+    <p>Жидкости для электронных сигарет</p>
+
+</section>
+
+
+
+<!--BRANDS-->
+
+<section class="section">
+
+    <h2>Лучшие жидкости лучших брендов 👌</h2>
+
+    <ul class="list list--decorated"> <!-- flex-dir col mobile-->
+
+        <li class="list__item"><img src="assets/img/nickvape_logo.png" alt=""></li>
+
+        <li class="list__item"><img src="assets/img/desperados_logo.jpg" alt=""></li>
+
+        <li class="list__item"><img src="assets/img/vape-ray_logo.png" alt=""></li>
+
+        <li class="list__item"><img src="assets/img/academia_logo.png" alt=""></li>
+
+    </ul>
+
+</section>
+
+<div class="section__divider"></div>
+
+
+
+<!--SERVICES-->
+
+<section class="section">
+
+    <h2>Мы позаботимся о вашем девайсе ❤</h2>
+
+    <ul>
+
+        <li>Накрутим и установим койлы</li>
+
+        <li>Заменим коттон</li>
+
+    </ul>
+
+</section>
+
+<div class="section__divider"></div>
+
+<!--MAP-->
+
+<section class="section section__map">
+
+    <h2>Мы находимся по адресу:</h2>
+    <p>г. Одесса, Затока</p>
+
+    <div id="map"></div>
+
+
+</section>
+
+
+<!--CONTACTS-->
+
+<section class="section--row contact">
+
+    <h2>Мы всегда на связи:</h2>
+
+    <ul class="list__column">
+        <li class="list__item"><h3>Nickvape</h3></li>
+        <li class="list__item">
+            <a class="link" target="_blank" href="https://aromavape.com.ua/">Сайт</a>
+        </li>
+
+        <li class="list__item">
+            <a href="tel:+380672097977">+380 67 209-7977</a>
+        </li>
+
+    </ul>
+
+    <ul class="list__column">
+        <li class="list__item"><h3>Desperados</h3></li>
+        <li class="list__item">
+            <a href="tel:+380672097977">+380 67 209-7977</a>
+        </li>
+
+        <li class="list__item">
+            <a href="https://www.instagram.com/desperadoseliquid/">Instagram</a>
+        </li>
+
+    </ul>
+
+    <ul class="list__column">
+        <li class="list__item"><h3>VAPE.RAY</h3></li>
+        <li class="list__item">
+            <a class="link" target="_blank" href="http://vape-ray.com/">Сайт</a>
+        </li>
+        <li class="list__item">
+            <a href="tel:+380975488266">+380 97 548-8266</a>
+        </li>
+        <li class="list__item">
+            <a href="tel:+380634844296">+380 63 484-4296</a>
+        </li>
+    </ul>
+
+    <ul class="list__column">
+        <li class="list__item"><h3>Academia</h3></li>
+        <li class="list__item">
+            <a class="link" target="_blank" href="https://www.academiavape.com.ua/">Сайт</a>
+        </li>
+        <li class="list__item">
+            <a href="tel:+380661112828">+380 66 111-2828</a>
+        </li>
+
+    </ul>
+
+</section>
+
+
+<script>
+    function initMap() {
+        var uluru = {lat: 46.065705, lng: 30.449788};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh4UPCNt5-xFd1BnI5qXVSdP-UWSlGS0g&callback=initMap">
+</script>
+
+
+</body>
+
+</html>
