@@ -14,6 +14,8 @@
 
     <title>Parilka Bar | Мы попарились за вас)</title>
 
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -32,15 +34,15 @@
         <a class="link" href="tel:+380672097977">+380 67 209-7977</a>
     </div>
 
-    <img class="hero__logo" src="assets/img/logo.svg" alt="">
+    <img class="hero__logo" src="assets/img/Parilka_logo.svg" alt="">
 
     <div class="hero__title">
-        <h1>Мы попарились за вас &mdash; наслаждайтесь<br>
-        вкусным и качественным
-        паром. </h1>
+        <h1>Мы попарились за вас</h1>
     </div>
 
     <p>Жидкости для электронных сигарет</p>
+
+    <i class="pointer"></i>
 
 </section>
 
@@ -50,17 +52,15 @@
 
 <section class="section">
 
-    <h2>Лучшие жидкости лучших брендов 👌</h2>
-
     <ul class="list list--decorated"> <!-- flex-dir col mobile-->
 
-        <li class="list__item"><img src="assets/img/nickvape_logo.png" alt=""></li>
+        <li class="list__item"><img src="assets/img/NicVape_logo.svg" alt=""></li>
 
-        <li class="list__item"><img src="assets/img/desperados_logo.jpg" alt=""></li>
+        <li class="list__item"><img src="assets/img/Desperados_logo.svg" alt=""></li>
 
-        <li class="list__item"><img src="assets/img/vape-ray_logo.png" alt=""></li>
+        <li class="list__item"><img src="assets/img/VapeRay_logo.svg" alt=""></li>
 
-        <li class="list__item"><img src="assets/img/academia_logo.png" alt=""></li>
+        <li class="list__item"><img src="assets/img/Academia_logo.svg" alt=""></li>
 
     </ul>
 
@@ -68,19 +68,21 @@
 
 <div class="section__divider"></div>
 
-
-
 <!--SERVICES-->
 
 <section class="section">
 
-    <h2>Мы позаботимся о вашем девайсе ❤</h2>
+    <h2>Мы позаботимся о вашем девайсе ♡</h2>
 
     <ul>
 
-        <li>Накрутим и установим койлы</li>
+        <li class="list__item">У нас большой ассортимент койлов</li>
 
-        <li>Заменим коттон</li>
+        <li class="list__item">Мы устанавливаем арт-койлы</li>
+
+        <li class="list__item">Меняем вату</li>
+
+        <li class="list__item">Заряжаем батарейки</li>
 
     </ul>
 
@@ -93,7 +95,7 @@
 <section class="section section__map">
 
     <h2>Мы находимся по адресу:</h2>
-    <p>г. Одесса, Затока</p>
+    <p>Одесская обл., Затока, ул. Приморская 63/1, «Уютная аллея»</p>
 
     <div id="map"></div>
 
@@ -108,49 +110,55 @@
     <h2>Мы всегда на связи:</h2>
 
     <ul class="list__column">
-        <li class="list__item"><h3>Nickvape</h3></li>
-        <li class="list__item">
-            <a class="link" target="_blank" href="https://aromavape.com.ua/">Сайт</a>
-        </li>
+        <li class="list__item"><h3>NicVape</h3></li>
 
         <li class="list__item">
             <a href="tel:+380672097977">+380 67 209-7977</a>
+        </li>
+
+        <li class="list__item">
+            <a class="link" target="_blank" href="https://aromavape.com.ua/">Сайт</a>
         </li>
 
     </ul>
 
     <ul class="list__column">
         <li class="list__item"><h3>Desperados</h3></li>
+
         <li class="list__item">
-            <a href="tel:+380672097977">+380 67 209-7977</a>
+            <a href="tel:+380672097977">+380 99 550-2472</a>
         </li>
 
         <li class="list__item">
-            <a href="https://www.instagram.com/desperadoseliquid/">Instagram</a>
+            <a class="link" target="_blank" href="https://www.instagram.com/desperadoseliquid/">Instagram</a>
         </li>
 
     </ul>
 
     <ul class="list__column">
         <li class="list__item"><h3>VAPE.RAY</h3></li>
-        <li class="list__item">
-            <a class="link" target="_blank" href="http://vape-ray.com/">Сайт</a>
-        </li>
+
         <li class="list__item">
             <a href="tel:+380975488266">+380 97 548-8266</a>
         </li>
         <li class="list__item">
             <a href="tel:+380634844296">+380 63 484-4296</a>
         </li>
+
+        <li class="list__item">
+            <a class="link" target="_blank" href="http://vape-ray.com/">Сайт</a>
+        </li>
     </ul>
 
     <ul class="list__column">
         <li class="list__item"><h3>Academia</h3></li>
-        <li class="list__item">
-            <a class="link" target="_blank" href="https://www.academiavape.com.ua/">Сайт</a>
-        </li>
+
         <li class="list__item">
             <a href="tel:+380661112828">+380 66 111-2828</a>
+        </li>
+
+        <li class="list__item">
+            <a class="link" target="_blank" href="https://www.academiavape.com.ua/">Сайт</a>
         </li>
 
     </ul>
@@ -160,7 +168,7 @@
 
 <script>
     function initMap() {
-        var uluru = {lat: 46.065705, lng: 30.449788};
+        var uluru = {lat: 46.065222, lng: 30.455555};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
             center: uluru
