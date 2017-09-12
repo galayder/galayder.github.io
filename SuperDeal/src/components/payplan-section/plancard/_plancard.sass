@@ -1,0 +1,118 @@
+.plancard-wrapper
+  flex: 0 1 100%
+  display: flex
+  justify-content: center
+
+  @media screen and (max-width: $medium)
+    flex-wrap: wrap
+
+
+.plancard
+  display: flex
+  justify-content: center
+  flex: 1 1 auto
+  flex-direction: column
+  max-width: 390px
+  padding: 40px 25px
+  text-align: center
+  overflow-wrap: break-word
+  background-color: $porcelain
+  transition: .2s
+
+  > *
+    margin-bottom: 20px
+    &:last-of-type
+      margin-bottom: 0
+
+  + .plancard
+    margin-left: 20px
+
+  &:hover
+    background-color: lighten($porcelain, 10%)
+    transform: scale(1.05)
+    box-shadow: 0 20px 80px -15px rgba($aztec, 0.55)
+    .plancard__price
+      color: $olive-drab
+
+  @media screen and (max-width: $medium)
+    flex: 0 1 100%
+    min-width: 0
+    max-width: 350px
+    padding: 30px 20px
+    background-color: white
+    box-shadow: 0 30px 80px -30px rgba($aztec, 0.55)
+    pointer-events: none
+    + .plancard
+      margin-left: 0
+      margin-top: 30px
+
+  @media screen and (max-width: $small)
+    box-shadow: 0 20px 80px -15px rgba($aztec, 0.55)
+
+
+  @media screen and (min-width: $large + 1)
+    flex: 1 1 50%
+    max-width: 700px
+
+
+.plancard__icon,
+.plancard__title,
+.plancard__price,
+.plancard__desc
+  flex: 1 0 auto
+  display: flex
+  justify-content: center
+
+.plancard__icon
+  width: 100%
+  img
+    display: block
+    width: 100px
+    height: 100px
+
+
+.plancard__title
+  font-size: 2.25em
+  font-weight: bold
+
+.plancard__price
+  display: flex
+  flex-wrap: wrap
+  margin-top: auto
+  font-size: 3.25em
+  font-weight: bold
+  color: $sushi
+  sup
+    font-size: 0.5em
+    top: -0.2em
+  span:last-child
+    font-size: 0.5em
+    font-weight: normal
+
+.plancard-desc__list
+  text-align: left
+
+  @media screen and (min-width: $ipad + 1)
+    display: flex
+    flex: 1 0 auto
+    flex-wrap: wrap
+    justify-content: center
+    text-align: center
+
+
+.plancard-desc__item
+  flex: 1 1 100%
+  margin-left: 10px
+  margin-bottom: 10px
+
+  &::before
+    content: '✔'
+    margin-right: 10px
+    color: $sushi
+  &.is-disabled
+    color: rgba($aztec, 0.35)
+    &::before
+      visibility: hidden
+
+.plancard__action
+  margin-top: auto

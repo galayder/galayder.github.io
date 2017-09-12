@@ -1,0 +1,9 @@
+mixin product-card(href)
+  .product-card
+    .product-card__title&attributes(attributes)
+      .product-card__title-wrap
+        span A title of product
+    .product-card__desc
+      if block
+        block
+    block block-link

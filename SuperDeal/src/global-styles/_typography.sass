@@ -1,0 +1,26 @@
+.g-title
+  flex: 0 1 auto
+  width: auto
+
+h1.g-title
+  font-size: 12vw
+
+h2.g-title
+  position: relative
+  margin-bottom: 60px
+  font-size: 2.25em
+  &::after
+    content: ''
+    position: absolute
+    margin: 0 auto
+    width: 70%
+    left: 0
+    right: 0
+    bottom: -15px
+    border-bottom: 3px solid $sushi
+
+  @media screen and (max-width: $small)
+    margin-bottom: 40px
+    font-size: 1.375em
+    &::after
+      width: 100%

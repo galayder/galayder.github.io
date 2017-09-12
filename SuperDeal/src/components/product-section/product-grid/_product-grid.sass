@@ -1,0 +1,18 @@
+.product-grid
+  display: flex
+  flex: 1 1 100%
+  flex-wrap: wrap
+  max-width: 960px
+  justify-content: center
+  margin: 0px -30px
+
+
+.product-grid__cell
+  display: flex
+  flex: 0 0 50%
+  max-width: 50%
+  justify-content: center
+  padding: 0 30px 60px 30px
+  @media screen and (max-width: $medium)
+    flex-basis: 100%
+    max-width: 100%

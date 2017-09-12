@@ -1,0 +1,17 @@
+mixin g-header
+  .g-header
+    .g-header__cell
+      .g-header__logo Super Deal
+
+    .g-header__cell
+      nav.g-header__nav
+        ul.g-header__nav-list
+          li.nav-list__item
+            a(href="#hero").g-link Home
+          li.nav-list__item
+            a(href="#payplan").g-link Pricing
+          li.nav-list__item
+            a(href="http://www.ogorodniki.com" target="_blank").g-link Blog
+
+    if block
+      block

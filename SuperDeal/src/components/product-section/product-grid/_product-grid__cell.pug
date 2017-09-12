@@ -1,0 +1,14 @@
+mixin product-grid__cell(fractions)
+  case fractions
+
+    when 'fraction-1/2'
+      .product-grid__cell.product-grid__cell--1-2
+
+        if block
+          block
+
+    when 'fraction-1/1'
+      .product-grid__cell
+
+        if block
+          block
