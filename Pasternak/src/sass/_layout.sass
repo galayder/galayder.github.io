@@ -1,0 +1,123 @@
+.wrap
+	+positioning(center, center)
+	flex-direction: column
+	background-color: #fff
+
+.hero
+	+positioning(center, center)
+	width: 100%
+	height: $full-height
+	background-image: url(/img/hero-bg.jpg)
+	background-size: cover
+	background-position: 50% 50%
+	&__title
+		align-self: center
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		width: 50%
+		margin-top: $space-xxl * 4
+		padding: $space-xxl $space-xl
+		color: #000
+		text-align: center
+		background-color: rgba(#fff, 0.9)
+		box-shadow: 0 21px 55px -10px rgba(0, 0, 0, .6)
+		transition: all 1s ease
+		span
+			position: relative
+			left: 0
+			font-size: 80%
+			margin-left: -50px
+			&:after
+				content: '〰〰'
+				position: absolute
+				right: 56px
+				bottom: 18px
+				text-align: center
+				font-weight: bold
+				font-size: 90%
+				color: $main-color
+				z-index: 1
+
+.desc
+	display: flex
+	flex-wrap: wrap
+	&__item
+		flex: 1 0 100%
+		position: relative
+		background-color: #fff
+		z-index: 1
+		&:nth-child(even)
+			background-color: lighten($main-color, 33%)
+			.desc__text
+				background-color: lighten($main-color, 33%)
+	&__text
+		position: sticky
+		top: 0
+		text-align: center
+		padding: $space-xl $space-xl $space-l $space-xl
+		background-color: #fff
+		z-index: 1
+		box-shadow: 0 55px 55px -55px rgba(0, 0, 0, 0.6)
+		&:after
+			content: '〰〰'
+			position: relative
+			display: block
+			margin: 0 auto
+			text-align: center
+			font-weight: bold
+			font-size: 24px
+			color: $main-color
+		&:last-child:after
+			content: ''
+	&__media
+		padding: 0 $space-xl $space-xl
+		img
+			max-width: 100%
+		img + img
+			margin-top: $space-l
+		img:last-child
+			margin-bottom: $space-l
+
+.contact
+	display: flex
+	align-items: stretch
+	justify-content: center
+	flex-direction: column
+	height: $full-height
+	width: 100%
+	&__title
+		background-color: $main-color
+		flex: 1 1 30%
+		display: flex
+		justify-content: center
+		align-items: center
+		box-shadow: 0 25px 120px -20px rgba(62, 6, 148, 0.8), 0 22px 20px -25px rgba(0, 0, 0, 0.8)
+	&__avatar
+		display: flex
+		justify-content: center
+		align-items: center
+		position: relative;
+		margin: 0 auto;
+		width: 50%;
+		border-radius: 50%;
+		overflow: hidden;
+		&:before
+			display: block;
+			content: ''
+			width: 100%
+			margin-top: 100%
+		img
+			position: absolute
+			height: 100%
+			max-width: none
+			top: 0
+	&__content
+		flex: 1 1 70%
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		align-items: center	
+		color: black
+
+// QUERIES

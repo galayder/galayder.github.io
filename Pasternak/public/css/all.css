@@ -1,0 +1,14 @@
+html, body, ul, ol, h1, h2, h3, h4, p {
+  margin: 0;
+  padding: 0; }
+
+.wrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #fff; }
+
+/*# sourceMappingURL=all.css.map */
