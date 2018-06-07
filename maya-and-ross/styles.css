@@ -1,0 +1,265 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  /* Browsers have different default form fonts */
+  font-size: 14px; }
+
+/* Remove the stupid outer glow in Webkit */
+input:focus {
+  outline: 0; }
+
+/* Box Sizing Reset */
+input,
+textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Button Controls */
+input[type=checkbox],
+input[type=radio] {
+  width: 13px;
+  height: 13px; }
+
+/* Search Input */
+/* Make webkit render the search input like a normal text field */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box; }
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration {
+  display: none; }
+
+/* Buttons */
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  width: auto; }
+
+/* Textarea */
+textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto; }
+
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+.link {
+  color: #249a4f;
+  transition: color .2s; }
+  .link:hover, .link:active {
+    color: #79c896;
+    transition: color .2s; }
+
+.icon {
+  width: 20px;
+  margin-left: 4px;
+  height: auto; }
+
+.section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh; }
+  .section__hero {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 40px 0; }
+    .section__hero--marble {
+      background: url(./img/marble-bg.jpg) no-repeat;
+      background-size: cover;
+      background-position: 50% 50%; }
+    .section__hero--place {
+      background: url(./img/verholy.jpg) no-repeat;
+      background-size: cover;
+      background-position: 50% 50%; }
+    .section__hero--dresscode {
+      background: url(./img/dress-code.jpg) no-repeat;
+      background-size: cover;
+      background-position: 50% 50%; }
+  .section__title {
+    font-size: 54px;
+    font-weight: 300;
+    color: #454545;
+    text-transform: uppercase;
+    letter-spacing: 6px; }
+  .section .block {
+    margin-top: 40px; }
+  .section .copyright {
+    text-align: center;
+    margin-bottom: 20px; }
+  @media screen and (max-width: 480px) {
+    .section {
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto; }
+      .section .section__hero {
+        height: 200px;
+        margin: 20px 0 0;
+        padding: 24px 16px; }
+      .section .section__title {
+        font-size: 36px; }
+      .section .copyright {
+        width: 100%;
+        margin: 16px 0; } }
+
+.block {
+  flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  margin: 0 40px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  .block__img img {
+    width: 125px;
+    height: 100%;
+    display: block; }
+  .block__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center; }
+    .block__item:nth-child(2n-1) {
+      margin-bottom: 0; }
+    .block__item + .block__item {
+      margin: 24px 0 0; }
+      .block__item + .block__item:last-child {
+        margin-bottom: auto; }
+  .block__subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; }
+    .block__subtitle + p {
+      margin-top: 16px;
+      max-width: 70%;
+      line-height: 1.44; }
+    .block__subtitle strong {
+      margin: 0 4px;
+      text-transform: uppercase; }
+  @media screen and (max-width: 480px) {
+    .block {
+      flex: auto;
+      margin: 0;
+      padding: 16px; }
+      .block .block__subtitle {
+        font-size: 18px; }
+        .block .block__subtitle + p {
+          max-width: 100%;
+          padding: 16px; } }
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 2;
+  background: url(./img/marble-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  box-shadow: 0 150px 80px -160px rgba(0, 0, 0, 0.2);
+  overflow: hidden; }
+  .hero-wrap {
+    position: relative; }
+
+.deco-block {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(./img/eucalyptus-8bit.png) no-repeat;
+  background-size: 85%;
+  background-position: 50% 72%; }
+  @media screen and (max-width: 480px) {
+    .deco-block {
+      background-size: 200%;
+      background-position: 50% 66%; } }
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 80px;
+  border: 6px solid black;
+  box-sizing: content-box;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 1;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+  .logo__letter-group:nth-child(2) {
+    margin-bottom: 50px; }
+  .logo__letter:nth-child(2n-1) {
+    letter-spacing: 1px; }
+  .logo__letter-group:nth-child(2n) .logo__letter:nth-child(2n-1) {
+    letter-spacing: 13px; }
+  @media screen and (max-width: 480px) {
+    .logo {
+      padding: 30px 40px;
+      border: 4px solid black;
+      font-size: 40px; }
+      .logo__letter-group:nth-child(2) {
+        margin-bottom: 30px; }
+      .logo__letter:nth-child(2n-1) {
+        letter-spacing: 1px; }
+      .logo__letter-group:nth-child(2n) .logo__letter:nth-child(2n-1) {
+        letter-spacing: 13px; } }
