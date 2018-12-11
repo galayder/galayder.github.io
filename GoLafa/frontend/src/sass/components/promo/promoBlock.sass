@@ -1,0 +1,70 @@
+.grid--promo
+    &__row
+        margin: 0
+    &__column
+        padding: 0
+
+.content__title
+    margin-top: 30px
+    & + .grid--promo
+        margin-top: 28px
+.grid--promo
+    margin-bottom: 44px
+    .grid__row
+        border-radius: 10px
+        overflow: hidden
+    .grid__column
+        // display: flex
+        // align-items: center
+        // justify-content: center
+        // flex: 1 1 100%
+        // width: 100%
+        // padding-bottom: 100%
+        position: relative
+        background: tomato
+        color: white
+        font-weight: bold
+        text-align: center
+        flex-grow: 1
+        flex-shrink: 0
+        height: auto
+        &:before
+            content: ''
+            float: left
+            min-width: 235px
+            padding-top: 100%
+
+.promo-block
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    &--shopping
+        background-color: $cat-color--shopping
+    &--inctitutions
+        background-color: $cat-color--inctitutions
+    &--transport
+        background-color: $cat-color--transport
+    &--food
+        background-color: $cat-color--food
+    &--apartments
+        background-color: $cat-color--apartments
+    &--events
+        background-color: $cat-color--events
+    &--entertainment
+        background-color: $cat-color--entertainment
+    &--tours
+        background-color: $cat-color--tours
+    &--places
+        background-color: $cat-color--places
+    &:after
+        content: url('../../img/puzzle.svg')
+        position: absolute
+        right: -72px
+        display: block
+        width: 72px
+        z-index: 1
