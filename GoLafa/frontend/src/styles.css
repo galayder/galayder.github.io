@@ -440,7 +440,7 @@ body.stop-scroll {
   height: 35px; }
   .icon--find {
     position: absolute;
-    content: url("../../../img/icon_search.svg");
+    content: url("./img/icon_search.svg");
     top: 0;
     bottom: 0;
     left: 0;

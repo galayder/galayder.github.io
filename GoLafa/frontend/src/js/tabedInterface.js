@@ -21,8 +21,9 @@ for(var i = 0; i < tab.length; i++) {
     });
 }
 
-bgDimmer.addEventListener('click', function() {
-    this.classList.remove('is-active');
+document.addEventListener('click', function(event) {
+    event.stopPropagation();
+    bgDimmer.classList.remove('is-active');
     tabCollection.classList.remove('is-active');
     document.body.classList.remove('stop-scroll')
 });

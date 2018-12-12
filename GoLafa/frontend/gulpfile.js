@@ -9,12 +9,12 @@ var gulp = require('gulp'),
 
 // Watching changes
 gulp.task('watch', ['sass'], function() {
-    browserSync.init({
-        server: './src',
-        browser: 'chrome.exe'
-    });
+    // browserSync.init({
+    //     server: './src',
+    //     browser: 'chrome.exe'
+    // });
     gulp.watch('src/sass/**/*.sass', ['sass']);
-    gulp.watch('src/index.html').on('change', browserSync.reload);
+    // gulp.watch('src/index.html').on('change', browserSync.reload);
 });
 // SASS
 gulp.task('sass', function () {
