@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GoLafa</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div id="root" class="global-wrapper">
-        <div class="global-dimmer js-dimmer"></div>
+
         <header class="header">
             <div class="header__content">
                 <div class="logo">
-                    <img src="img/logo.png" alt="GoLafa">
+                    <a href="./index.php"><img src="img/logo.png" alt="GoLafa"></a>
                 </div>
                 <div class="header__actions">
                     <div class="search-bar">
@@ -35,6 +37,7 @@
                 </div>
             </div>
         </header>
+
         <section class="banner">
             <div class="banner__title">Жить каждый день</div>
             <div class="banner__subtitle">Легко спланируйте свой вечер, выходные или путешествие всей жизни</div>
@@ -44,57 +47,125 @@
                         <div class="tabbed-menu__title">
                             Выберите один или несколько фильтров
                         </div>
-                        <div class="tab__collection">
-                            <div class="tab js-tab">Где</div>
-                            <div class="tab js-tab">Что</div>
-                            <div class="tab js-tab">Когда</div>
-                            <div class="tab js-tab">С кем</div>
-                            <div class="tab js-tab">На чем</div>
-                            <div class="tab js-tab">Стоимость</div>
+                        
+                        <div class="tab__wrapper">
+                            <?php include_once("tabs.php"); ?>
+
+                            <?php for ($i=0; $i <= count($tabArray)-1; $i++){ ?>
+                                <div class="tab js-tab" id="<?php echo $i; ?>">
+                                    <span><?php echo $tabArray[$i]; ?></span>
+                                    <i class="icon icon--arrow"></i>
+                                </div>
+                            <?php } ?>
+                            
                             <button class="btn btn--main btn--filter">Найти</button>
+                                
                             <div class="tab__content">
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
+                                <div class="filter-panel">
+                                    <div class="filter__heading">
+                                        <div class="filter-category">
+                                            Где будем искать?
+                                        </div>
+                                        <div class="sorting">
+                                            <a href="#" class="service-link js-link">Сортировать по алфавиту</a>
+                                            <a href="#" class="service-link js-link">Сбросить фильтры</a>
+                                        </div>
+                                    </div>
+                                    <div class="filter__collection">
+                                        <?php
+                                            for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
+                                            <a href="#" class="filter-item js-filter js-link">
+                                                <?php echo $tabContent['where'][$i]; ?>
+                                            </a>
+                                        <?php } ?>
+                                        <a href="#" class="service-link service-link--more js-link">Показать все</a>
+                                    </div>
+                                    <div class="js-close js-link"></div>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </nav>
         </section>
 
-        <section class="content">
+        <section class="content"> 
             <div class="content-wrapper">
                 <div class="content__title">Всё необходимое для ваших планов</div>
                 <div class="grid grid--promo">
                     <div class="grid__row">
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--transport">1</div>
+                            <div class="promo-block promo-block--transport">
+                                <img src="./img/puzzle/1-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Транспорт</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--apartments">1</div>
+                            <div class="promo-block promo-block--apartments">
+                                <img src="./img/puzzle/2-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Жилье</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--places">1</div>
+                            <div class="promo-block promo-block--places">
+                                <img src="./img/puzzle/3-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Интересные места</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>                                              
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--entertainment">1</div>
+                            <div class="promo-block promo-block--entertainment">
+                                <img src="./img/puzzle/4-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Развлечения, досуг</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--events">1</div>
+                            <div class="promo-block promo-block--events">
+                                <img src="./img/puzzle/5-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">События, фестивали</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--shopping">1</div>
+                            <div class="promo-block promo-block--shopping">
+                                <img src="./img/puzzle/6-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Шопинг</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--food">1</div>
+                            <div class="promo-block promo-block--food">
+                                <img src="./img/puzzle/7-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Еда</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--inctitutions">1</div>
+                            <div class="promo-block promo-block--inctitutions">
+                                <img src="./img/puzzle/8-pcs.png" alt="">
+                                <div class="promo__action">
+                                    <div class="promo-title">Учреждения, прочее</div>
+                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,6 +273,7 @@
                 </div>
             </div>
         </section>
+
         <footer class="footer">
             <div class="footer__content">
                 <div class="footer__head">
@@ -221,6 +293,8 @@
                 </div>
             </div>
         </footer>
+
+        <div class="filter-block__dimmer js-dimm"></div>
     </div>
 
     <script defer src="js/tabedInterface.js"></script>
