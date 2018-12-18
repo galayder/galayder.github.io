@@ -7,6 +7,7 @@
     <title>GoLafa</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -25,22 +26,26 @@
                                 <div class="icon icon--find"></div>
                             </button>
                         </div>
-                        <div class="input-group">
-                            <select name="lang" id="selectLang" class="select">
-                                <option value="1">Рус</option>
-                                <option value="2">Укр</option>
-                                <option value="2">En</option>
-                            </select>
+                        <div class="select-group">
+                            <div class="select__icon">
+                                <i class="icon icon--arrow"></i>
+                            </div>
+                            <div class="select">
+                                <div class="select__item is-current">
+                                    Рус
+                                </div>
+                                <div class="select__item">Укр</div>
+                                <div class="select__item">En</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="lang-select"></div>
                 </div>
             </div>
         </header>
 
         <section class="banner">
             <div class="banner__title">Жить каждый день</div>
-            <div class="banner__subtitle">Легко спланируйте свой вечер, выходные или путешествие всей жизни</div>
+            <div class="banner__subtitle">Легко спланируйте свой вечер, выходные </br>или путешествие всей жизни</div>
             <nav class="filter-block">
                 <div class="filter-block__inner">
                     <div class="tabbed-menu">
@@ -75,13 +80,14 @@
                                         <?php
                                             for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
                                             <a href="#" class="filter-item js-filter js-link">
-                                                <?php echo $tabContent['where'][$i]; ?>
+                                                <span><?php echo $tabContent['where'][$i]; ?></span>
                                             </a>
                                         <?php } ?>
                                         <a href="#" class="service-link service-link--more js-link">Показать все</a>
                                     </div>
                                     <div class="js-close js-link"></div>
                                 </div>
+                                <div class="is-out-of-view"></div>
                             </div>
                         </div>
                         
@@ -117,7 +123,7 @@
                             <div class="promo-block promo-block--places">
                                 <img src="./img/puzzle/3-pcs.png" alt="">
                                 <div class="promo__action">
-                                    <div class="promo-title">Интересные места</div>
+                                    <div class="promo-title">Интересные</br>места</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
                                 </div>                                              
                             </div>
@@ -135,7 +141,7 @@
                             <div class="promo-block promo-block--events">
                                 <img src="./img/puzzle/5-pcs.png" alt="">
                                 <div class="promo__action">
-                                    <div class="promo-title">События, фестивали</div>
+                                    <div class="promo-title">События,</br>фестивали</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
@@ -162,7 +168,7 @@
                             <div class="promo-block promo-block--inctitutions">
                                 <img src="./img/puzzle/8-pcs.png" alt="">
                                 <div class="promo__action">
-                                    <div class="promo-title">Учреждения, прочее</div>
+                                    <div class="promo-title">Учреждения,</br>прочее</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
@@ -298,5 +304,6 @@
     </div>
 
     <script defer src="js/tabedInterface.js"></script>
+    <script defer src="js/dropdown.js"></script>
 </body>
 </html>
