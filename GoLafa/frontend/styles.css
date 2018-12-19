@@ -138,7 +138,9 @@ textarea {
   flex-wrap: wrap;
   justify-content: center; }
   .tabbed-menu__title {
-    flex: 1 1 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
     font-size: 15px;
     margin-bottom: 10px;
     color: #fff; }
@@ -146,7 +148,9 @@ textarea {
 .tab__wrapper {
   position: relative;
   display: flex;
-  flex: 1 1 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
   align-items: center;
   justify-content: space-between;
   height: 60px; }
@@ -178,7 +182,9 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1 1 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
   padding: 0 10px;
   height: 60px;
   border: 0;
@@ -199,12 +205,15 @@ textarea {
     border-radius: 0 5px 5px 0; }
 
 .tab__content {
-  flex: 1 1 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
   display: flex;
   visibility: hidden;
   opacity: 0;
   position: absolute;
   top: 100%;
+  left: 0;
   width: 100%;
   min-height: 100px;
   padding: 30px 40px 44px;
@@ -223,7 +232,9 @@ textarea {
   justify-content: center; }
 
 .filter__heading {
-  flex: 1 1 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
   display: flex;
   align-items: center; }
 
@@ -302,7 +313,9 @@ textarea {
 .filter-block {
   display: flex;
   position: relative;
-  flex: 1 1 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
   justify-content: center;
   height: 170px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -353,6 +366,7 @@ textarea {
     position: absolute;
     width: 100%;
     bottom: 0;
+    left: 0;
     z-index: 1; }
 
 .banner__title {
@@ -360,7 +374,9 @@ textarea {
   align-items: center;
   justify-content: center;
   margin-top: auto;
-  flex: 1 1 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
   font-size: 46px;
   color: #ffcc00;
   font-weight: bold;
@@ -382,16 +398,20 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 960px;
+  max-width: 100%;
   margin: 0 -10px; }
 
 .grid__row {
   display: flex;
-  flex: 0 1 100%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 100%;
   flex-wrap: wrap; }
 
 .grid__column {
-  flex: 0 0 auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
   display: flex;
   flex-direction: column;
   padding: 10px 10px; }
@@ -436,7 +456,9 @@ textarea {
 
 .card__img {
   position: relative;
-  flex: 2 1 auto;
+  flex-grow: 2;
+  flex-shrink: 1;
+  flex-basis: auto;
   display: flex;
   background-color: #cccccc;
   overflow: hidden;
@@ -471,12 +493,16 @@ textarea {
 .card__content {
   display: flex;
   flex-wrap: wrap;
-  flex: 0 1 auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
   padding: 12px 15px;
   background-color: #fff;
   border-radius: 0 0 10px 10px; }
   .card__content .card-category {
-    flex: 1 1 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 4px; }
@@ -497,10 +523,14 @@ textarea {
     .card__content .card-category--tours {
       color: #cc9900; }
   .card__content .card-name {
-    flex: 1 1 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
     font-size: 14px; }
   .card__content .card-adress {
-    flex: 1 1 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
     font-size: 13px;
     color: #999999;
     text-overflow: ellipsis;
@@ -693,7 +723,9 @@ body.stop-scroll {
   z-index: 1; }
 
 .footer__content {
-  flex: 1 1 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
   flex-wrap: wrap;
   align-items: center;
   margin: auto 0;
@@ -747,12 +779,15 @@ body.stop-scroll {
     flex: 1 1 100%;
     font-size: 20px;
     padding: 0 15px;
-    word-break: break-word; }
+    word-break: break-word;
+    font-family: 'Oswald', sans-serif;
+    font-weight: normal; }
     .promo__action .promo-title + .btn--promo {
       opacity: 0;
       z-index: 99;
       margin-top: 20px;
       font-size: 15px;
+      font-weight: normal;
       transition: all .25s; }
 
 .promo-block {
@@ -764,7 +799,6 @@ body.stop-scroll {
   bottom: 0;
   left: 0;
   right: 0;
-  font-family: 'Oswald', sans-serif;
   background-color: #121212; }
   .promo-block img {
     position: absolute;
@@ -775,67 +809,63 @@ body.stop-scroll {
     pointer-events: none; }
   .promo-block--transport img {
     z-index: 8; }
-  .promo-block--transport .promo__action {
-    z-index: 9; }
   .promo-block--transport:hover .btn--promo {
     border-color: #0099cc;
     opacity: 1;
     color: #fff; }
     .promo-block--transport:hover .btn--promo:hover {
       background-color: #0099cc; }
-  .promo-block--transport:hover img {
-    opacity: .25; }
   .promo-block--apartments img {
     z-index: 7; }
-  .promo-block--apartments .promo__action {
-    z-index: 8; }
+    @media screen and (max-width: 480px) {
+      .promo-block--apartments img {
+        transform-origin: 38.2%;
+        transform: rotate(90deg); } }
   .promo-block--apartments:hover .btn--promo {
     border-color: #cc6600;
     opacity: 1;
     color: #fff; }
     .promo-block--apartments:hover .btn--promo:hover {
       background-color: #cc6600; }
-  .promo-block--apartments:hover img {
-    opacity: .25; }
   .promo-block--places img {
     z-index: 6; }
-  .promo-block--places .promo__action {
-    z-index: 7; }
+    @media screen and (max-width: 480px) {
+      .promo-block--places img {
+        transform-origin: 38.2%;
+        transform: rotate(90deg); } }
   .promo-block--places:hover .btn--promo {
     border-color: #cc9900;
     opacity: 1;
     color: #fff; }
     .promo-block--places:hover .btn--promo:hover {
       background-color: #cc9900; }
-  .promo-block--places:hover img {
-    opacity: .25; }
   .promo-block--entertainment img {
     z-index: 5;
     width: 101%;
     top: -1px; }
-  .promo-block--entertainment .promo__action {
-    z-index: 6; }
+    @media screen and (max-width: 480px) {
+      .promo-block--entertainment img {
+        transform-origin: 50.2% 38%;
+        transform: rotate(90deg);
+        z-index: 6; } }
   .promo-block--entertainment:hover .btn--promo {
     border-color: #cc3300;
     opacity: 1;
     color: #fff; }
     .promo-block--entertainment:hover .btn--promo:hover {
       background-color: #cc3300; }
-  .promo-block--entertainment:hover img {
-    opacity: .25; }
   .promo-block--events img {
     z-index: 4;
     width: 100%; }
-  .promo-block--events .promo__action {
-    z-index: 5; }
+    @media screen and (max-width: 480px) {
+      .promo-block--events img {
+        transform: rotate(90deg); } }
   .promo-block--events:hover .btn--promo {
     border-color: #9900cc;
     opacity: 1;
     color: #fff; }
     .promo-block--events:hover .btn--promo:hover {
       background-color: #9900cc; }
-  .promo-block--events:hover img {
-    opacity: .25; }
   .promo-block--shopping img {
     z-index: 4;
     left: unset;
@@ -843,16 +873,17 @@ body.stop-scroll {
     right: 0;
     bottom: -1px;
     right: -1px; }
-  .promo-block--shopping .promo__action {
-    z-index: 5; }
+    @media screen and (max-width: 480px) {
+      .promo-block--shopping img {
+        transform-origin: 61.6%;
+        transform: rotate(-90deg);
+        z-index: 6; } }
   .promo-block--shopping:hover .btn--promo {
     border-color: #cc0099;
     opacity: 1;
     color: #fff; }
     .promo-block--shopping:hover .btn--promo:hover {
       background-color: #cc0099; }
-  .promo-block--shopping:hover img {
-    opacity: .25; }
   .promo-block--food img {
     z-index: 4;
     left: unset;
@@ -860,32 +891,28 @@ body.stop-scroll {
     right: 0;
     bottom: -1px;
     right: -1px; }
-  .promo-block--food .promo__action {
-    z-index: 6; }
+    @media screen and (max-width: 480px) {
+      .promo-block--food img {
+        transform-origin: 61.6%;
+        transform: rotate(90deg); } }
   .promo-block--food:hover .btn--promo {
     border-color: #009900;
     opacity: 1;
     color: #fff; }
     .promo-block--food:hover .btn--promo:hover {
       background-color: #009900; }
-  .promo-block--food:hover img {
-    opacity: .25; }
   .promo-block--inctitutions img {
     z-index: 5;
     left: unset;
     top: unset;
     right: -1px;
     bottom: -1px; }
-  .promo-block--inctitutions .promo__action {
-    z-index: 7; }
   .promo-block--inctitutions:hover .btn--promo {
     border-color: #3466fe;
     opacity: 1;
     color: #fff; }
     .promo-block--inctitutions:hover .btn--promo:hover {
       background-color: #3466fe; }
-  .promo-block--inctitutions:hover img {
-    opacity: .25; }
   .promo-block:after {
     content: url("../../img/puzzle.svg");
     position: absolute;
@@ -893,6 +920,10 @@ body.stop-scroll {
     display: block;
     width: 72px;
     z-index: 1; }
+  .promo-block:hover img {
+    filter: url(#brightness); }
+  .promo-block .promo__action {
+    z-index: 9; }
 
 html, body {
   height: 100%;

@@ -98,6 +98,17 @@
 
         <section class="content"> 
             <div class="content-wrapper">
+
+                <svg height="0" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="brightness">
+                        <feComponentTransfer>
+                            <feFuncR type="linear" slope=".1" />
+                            <feFuncG type="linear" slope=".1" />
+                            <feFuncB type="linear" slope=".1" />
+                        </feComponentTransfer>
+                    </filter>
+                </svg>
+
                 <div class="content__title">Всё необходимое для ваших планов</div>
                 <div class="grid grid--promo">
                     <div class="grid__row">
@@ -123,7 +134,7 @@
                             <div class="promo-block promo-block--places">
                                 <img src="./img/puzzle/3-pcs.png" alt="">
                                 <div class="promo__action">
-                                    <div class="promo-title">Интересные</br>места</div>
+                                    <div class="promo-title">Интересные <br/>места</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
                                 </div>                                              
                             </div>
@@ -132,7 +143,7 @@
                             <div class="promo-block promo-block--entertainment">
                                 <img src="./img/puzzle/4-pcs.png" alt="">
                                 <div class="promo__action">
-                                    <div class="promo-title">Развлечения, досуг</div>
+                                    <div class="promo-title">Развлечения, <br/>досуг</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
@@ -141,7 +152,7 @@
                             <div class="promo-block promo-block--events">
                                 <img src="./img/puzzle/5-pcs.png" alt="">
                                 <div class="promo__action">
-                                    <div class="promo-title">События,</br>фестивали</div>
+                                    <div class="promo-title">События,<br/>фестивали</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
