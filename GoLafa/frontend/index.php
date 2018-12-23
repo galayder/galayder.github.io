@@ -67,23 +67,41 @@
                                 
                             <div class="tab__content">
                                 <div class="filter-panel">
-                                    <div class="filter__heading">
-                                        <div class="filter-category">
-                                            Где будем искать?
+                                    <div class="filter-panel__wrapper">
+                                        <div class="filter__heading">
+                                            <div class="filter-category">
+                                                Где будем искать?
+                                            </div>
+                                            <div class="sorting">
+                                                <a href="#" class="service-link js-sort">Сортировать по алфавиту</a>
+                                                <a href="#" class="service-link js-reset">Сбросить фильтры</a>
+                                            </div>
                                         </div>
-                                        <div class="sorting">
-                                            <a href="#" class="service-link js-link">Сортировать по алфавиту</a>
-                                            <a href="#" class="service-link js-link">Сбросить фильтры</a>
+                                        <div class="filter__collection">
+                                            <?php
+                                                for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
+                                                <a href="#" class="filter-item js-filter js-link">
+                                                    <span><?php echo $tabContent['where'][$i]; ?></span>
+                                                </a>
+                                            <?php } ?>
+                                            <a href="#" class="service-link service-link--more js-link">Показать все</a>
                                         </div>
                                     </div>
-                                    <div class="filter__collection">
-                                        <?php
-                                            for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
-                                            <a href="#" class="filter-item js-filter js-link">
-                                                <span><?php echo $tabContent['where'][$i]; ?></span>
-                                            </a>
-                                        <?php } ?>
-                                        <a href="#" class="service-link service-link--more js-link">Показать все</a>
+
+                                    <div class="filter-panel__wrapper js-subcollection">
+                                        <div class="filter__heading">
+                                            <div class="filter-category">
+                                                Как далеко?
+                                            </div>
+                                        </div>
+                                        <div class="filter__collection">
+                                            <?php
+                                                for ($i=0; $i <= count($tabContent['how-far'])-1; $i++){ ?>
+                                                <a href="#" class="filter-item js-filter-sub js-link">
+                                                    <span><?php echo $tabContent['how-far'][$i]; ?></span>
+                                                </a>
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                     <div class="js-close js-link"></div>
                                 </div>
@@ -99,22 +117,13 @@
         <section class="content"> 
             <div class="content-wrapper">
 
-                <svg height="0" xmlns="http://www.w3.org/2000/svg">
-                    <filter id="brightness">
-                        <feComponentTransfer>
-                            <feFuncR type="linear" slope=".1" />
-                            <feFuncG type="linear" slope=".1" />
-                            <feFuncB type="linear" slope=".1" />
-                        </feComponentTransfer>
-                    </filter>
-                </svg>
-
                 <div class="content__title">Всё необходимое для ваших планов</div>
-                <div class="grid grid--promo">
+                <div class="grid grid--promo desktop-only">
                     <div class="grid__row">
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--transport">
-                                <img src="./img/puzzle/1-pcs.png" alt="">
+                                <img src="./img/puzzle/1-pcs.png" alt="Транспорт">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Транспорт</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -123,7 +132,8 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--apartments">
-                                <img src="./img/puzzle/2-pcs.png" alt="">
+                                <img src="./img/puzzle/2-pcs.png" alt="Жилье">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Жилье</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -132,7 +142,8 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--places">
-                                <img src="./img/puzzle/3-pcs.png" alt="">
+                                <img src="./img/puzzle/3-pcs.png" alt="Интересные места">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Интересные <br/>места</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -141,7 +152,8 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--entertainment">
-                                <img src="./img/puzzle/4-pcs.png" alt="">
+                                <img src="./img/puzzle/4-pcs.png" alt="Развлечения, досуг">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Развлечения, <br/>досуг</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -150,7 +162,8 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--events">
-                                <img src="./img/puzzle/5-pcs.png" alt="">
+                                <img src="./img/puzzle/5-pcs.png" alt="События, фестивали">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">События,<br/>фестивали</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -159,7 +172,8 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--shopping">
-                                <img src="./img/puzzle/6-pcs.png" alt="">
+                                <img src="./img/puzzle/6-pcs.png" alt="Шопинг">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Шопинг</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -168,7 +182,8 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--food">
-                                <img src="./img/puzzle/7-pcs.png" alt="">
+                                <img src="./img/puzzle/7-pcs.png" alt="Еда">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Еда</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -177,10 +192,87 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--inctitutions">
-                                <img src="./img/puzzle/8-pcs.png" alt="">
+                                <img src="./img/puzzle/8-pcs.png" alt="Учреждения, прочее">
+                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
                                 <div class="promo__action">
                                     <div class="promo-title">Учреждения,</br>прочее</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid--promo mobile-only">
+                    <div class="grid__row">
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--transport">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/1-transport-puzzle.png" alt="Транспорт">
+                                <div class="promo__action">
+                                    <div class="promo-title">Транспорт</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--apartments">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/2-apartments-puzzle.png" alt="Жилье">
+                                <div class="promo__action">
+                                    <div class="promo-title">Жилье</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--places">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/3-places-puzzle.png" alt="Интересные места">
+                                <div class="promo__action">
+                                    <div class="promo-title">Интересные <br/>места</div>
+                                </div>                                              
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--entertainment">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/4-entertainment-puzzle.png" alt="Развлечения, досуг">
+                                <div class="promo__action">
+                                    <div class="promo-title">Развлечения, <br/>досуг</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--food">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/5-food-puzzle.png" alt="Еда">
+                                <div class="promo__action">
+                                    <div class="promo-title">Еда</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--events">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/6-events-puzzle.png" alt="События, фестивали">
+                                <div class="promo__action">
+                                    <div class="promo-title">События,<br/>фестивали</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--inctitutions">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/7-institutions-puzzle.png" alt="Учреждения, прочее">
+                                <div class="promo__action">
+                                    <div class="promo-title">Учреждения,</br>прочее</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column fr-4 fr-ml-2">
+                            <div class="promo-block promo-block--shopping">
+                                <a href="#" class="btn btn--promo"></a>
+                                <img src="./img/puzzle/mobile/8-shopping-puzzle.png" alt="Шопинг">
+                                <div class="promo__action">
+                                    <div class="promo-title">Шопинг</div>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +292,7 @@
                                 <div class="card__img">
                                     <img src="./img/photos/ph-1@2x.jpg" alt="">
                                     <div class="price-label">
-                                        от <b>99</b> грн
+                                        от <b class="js-charsplit">99</b> грн
                                     </div>
                                 </div>
                                 <div class="card__content">
@@ -215,7 +307,7 @@
                                 <div class="card__img">
                                     <img src="./img/photos/ph-2@2x.jpg" alt="">
                                     <div class="price-label">
-                                        от <b>99</b> грн
+                                        от <b class="js-charsplit">99</b> грн
                                     </div>
                                 </div>
                                 <div class="card__content">
@@ -230,7 +322,7 @@
                                 <div class="card__img">
                                     <img src="./img/photos/ph-3@2x.jpg" alt="">
                                     <div class="price-label">
-                                        от <b>9966</b> грн
+                                        от <b class="js-charsplit">9966</b> грн
                                     </div>
                                 </div>
                                 <div class="card__content">
@@ -246,7 +338,7 @@
                                 <div class="card__img">
                                     <img src="./img/photos/ph-4@2x.jpg" alt="">
                                     <div class="price-label">
-                                        от <b>919</b> грн
+                                        от <b class="js-charsplit">919</b> грн
                                     </div>
                                 </div>
                                 <div class="card__content">
@@ -261,7 +353,7 @@
                                 <div class="card__img">
                                     <img src="./img/photos/ph-5@2x.jpg" alt="">
                                     <div class="price-label">
-                                        от <b>99</b> грн
+                                        от <b class="js-charsplit">12399</b> грн
                                     </div>
                                 </div>
                                 <div class="card__content">
@@ -276,7 +368,7 @@
                                 <div class="card__img">
                                     <img src="./img/photos/ph-6@2x.jpg" alt="">
                                     <div class="price-label">
-                                        от <b>9459</b> грн
+                                        от <b class="js-charsplit">9459</b> грн
                                     </div>
                                 </div>
                                 <div class="card__content">
@@ -298,14 +390,26 @@
                         <img src="img/logo_footer.png" alt="GoLafa">
                     </div>
                     <div class="social-block">
-                        <div class="social-icon icon--twitter"></div>
-                        <div class="social-icon icon--facebook"></div>
-                        <div class="social-icon icon--vk"></div>
+                        <div class="social-icon icon--twitter">
+                            <a href="#">
+                                <?php echo file_get_contents("img/social/icon-twitter.svg"); ?>
+                            </a>
+                        </div>
+                        <div class="social-icon icon--facebook">
+                            <a href="#">
+                                <?php echo file_get_contents("img/social/icon-facebook.svg"); ?>
+                            </a>                            
+                        </div>
+                        <div class="social-icon icon--vk">
+                            <a href="#">
+                                <?php echo file_get_contents("img/social/icon-vk.svg"); ?>
+                            </a>                            
+                        </div>
                     </div>
                 </div>
                 <div class="footer__text">Golafa – сервис, который помогает легко найти, распланировать и приобрести все необходимое для интересного вечера, приятных выходных или незабываемого путешествия. Строить планы еще никогда не было так просто!</div>
                 <div class="footer__copyright">
-                    © 2018, Golafa
+                    © 2018, Golafa</br>
                     Все права защищены
                 </div>
             </div>
