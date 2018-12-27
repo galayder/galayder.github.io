@@ -69,15 +69,15 @@
                                 <div class="filter-panel">
                                     <div class="filter-panel__wrapper">
                                         <div class="filter__heading">
-                                            <div class="filter-category">
+                                            <div class="filter-category js-title">
                                                 Где будем искать?
                                             </div>
                                             <div class="sorting">
-                                                <a href="#" class="service-link js-sort">Сортировать по алфавиту</a>
-                                                <a href="#" class="service-link js-reset">Сбросить фильтры</a>
+                                                <a href="javascript:void(0);" class="service-link js-sort">Сортировать по алфавиту</a>
+                                                <a href="javascript:void(0);" class="service-link js-reset">Сбросить фильтры</a>
                                             </div>
                                         </div>
-                                        <div class="filter__collection">
+                                        <div class="filter__collection js-filter">
                                             <?php
                                                 for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
                                                 <a href="#" class="filter-item js-filter js-link">
@@ -88,16 +88,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="filter-panel__wrapper js-subcollection">
+                                    <div class="filter-panel__wrapper">
                                         <div class="filter__heading">
-                                            <div class="filter-category">
+                                            <div class="filter-category js-subtitle">
                                                 Как далеко?
                                             </div>
                                         </div>
-                                        <div class="filter__collection">
+                                        <div class="filter__collection js-subfilter">
                                             <?php
                                                 for ($i=0; $i <= count($tabContent['how-far'])-1; $i++){ ?>
-                                                <a href="#" class="filter-item js-filter-sub js-link">
+                                                <a href="#" class="filter-item js-subfilter-item js-link">
                                                     <span><?php echo $tabContent['how-far'][$i]; ?></span>
                                                 </a>
                                             <?php } ?>
