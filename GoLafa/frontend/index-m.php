@@ -14,10 +14,21 @@
             $( ".accordion" ).accordion({
                 collapsible: true,
                 heightStyle: "content",
-                active: false
+                active: false,
             });
-        } );
-    </script>
+            if ( $( ".filter__results" ).length <= 1) {
+                $( ".accordion--inner" ).accordion({
+                    active: true,
+                });
+            } else {
+                $( ".accordion--inner" ).accordion({
+                    collapsible: true,
+                    heightStyle: "content",
+                    active: false,
+                });
+            }
+        });
+        </script>
 </head>
 <body>
     <div id="root" class="global-wrapper">
@@ -64,44 +75,48 @@
             <?php include_once("tabs-m.php"); ?>
 
             <div class="filter-block__inner">
+                <div class="filter-block__item">
 
-                <?php for ($i=0; $i <= count($tabContent)-1; $i++){ ?>
-                    <div class="filter-block__item accordion" id="filter-<?php echo $i; ?>">
-                        <div class="filter js-filter">
-                            <i class="icon">
-                                <?php echo file_get_contents($iconArray[$i]); ?>
-                            </i>
-                            <span><?php echo $tabContent[$i+1]['title']; ?></span>
-                            <i class="icon icon--arrow-down">
-                                <?php echo file_get_contents("img/icon--arrow-down.svg"); ?>
-                            </i>
-                        </div>
+                    <?php for ($i=0; $i <= count($tabContent)-1; $i++){ ?>
 
-                        <div class="sub-filter-block">
+                        <div class="filter accordion">
+                            <div class="filter__title">
+                                <i class="icon">
+                                    <?php echo file_get_contents($iconArray[$i]); ?>
+                                </i>
+                                <span><?php echo $tabContent[$i+1]['title']; ?></span>
+                                <i class="icon icon--arrow-down">
+                                    <?php echo file_get_contents("img/icon--arrow-down.svg"); ?>
+                                </i>
+                            </div>
+                            <div class="filter__results filter__results--<?php echo $tabContent[$i+1]['class']; ?>">
+
                                 <?php for ($j=1; $j <= count($tabContent[$i+1])-1; $j++){ ?>
-                                    <div class="accordion sub-accordion">
-                                        <div class="sub-filter__title">
-                                            <div>
-                                                <span><?php echo $tabContent[$i+1]['sub-filter']['sub-title']; ?></span>
-                                                <i class="icon icon--arrow-down">
-                                                    <?php echo file_get_contents("img/icon--arrow-down.svg"); ?>
-                                                </i>
-                                            </div>
+                                    <div class="filter filter--second-level accordion--inner">
+                                        <div class="filter__title">
+                                            <span><?php echo $tabContent[$i+1][11]; ?></span>
+                                            <i class="icon icon--arrow-down">
+                                                <?php echo file_get_contents("img/icon--arrow-down.svg"); ?>
+                                            </i>
                                         </div>
-                                        <div class="sub-filter js-sub-filter">
-                                            <div class="filter js-filter">
-                                                <?php for ($k=1; $k <= count($tabContent[$i+1])-1; $k++){ ?>
-                                                    <span><?php echo $tabContent[$i+1][$k]; ?></span>
-                                                <?php } ?>
-                                            </div>
+                                        <div class="filter__results">
+                                            <div class="filter filter--third-level js-selectable">1</div>
+                                            <div class="filter filter--third-level js-selectable">2</div>
+                                            <div class="filter filter--third-level js-selectable">3</div>
+                                            <div class="filter filter--third-level js-selectable">4</div>
+                                            <div class="filter filter--third-level js-selectable">5</div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                        </div>
-                    </div>
-                <?php } ?>
 
-                <div class="filter-block__item">
+                            </div>
+                        </div>
+
+                    <?php } ?>
+
+                </div>
+
+                <div class="filter-block__item selected-filters">
                 </div>
 
                 <div class="filter-block__item">
