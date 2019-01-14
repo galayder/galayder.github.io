@@ -50,45 +50,101 @@
                 <div class="filter-block__inner">
                     <div class="tabbed-menu">
                         <div class="tabbed-menu__title">
-                            Выберите один или несколько фильтров
+                            <span class="js-init-state">Выберите один или несколько фильтров</span>
+                            <a href="javascript:void(0);" class="service-link js-reset-all">Сбросить фильтры</a>
+                            <span class="js-filters-selected"></span>
+                            <span class="js-subfilters-selected"></span>
                         </div>
-                        
+
                         <div class="tab__wrapper">
                             <?php include_once("tabs.php"); ?>
 
                             <?php for ($i=0; $i <= count($tabArray)-1; $i++){ ?>
                                 <div class="tab js-tab" id="<?php echo $i; ?>">
-                                    <span><?php echo $tabArray[$i]; ?></span>
+                                    <span><?php echo $tabArray[$i][$i]; ?></span>
                                     <i class="icon icon--arrow"></i>
+
+                                    <div class="tab__content">
+                                        <div class="filter-panel">
+                                            <div class="filter-panel__wrapper">
+                                                <div class="filter__heading">
+                                                    <div class="filter-category js-title">
+                                                        <span><?php echo $tabArray[$i]['title']; ?></span>
+                                                    </div>
+                                                    <div class="sorting">
+                                                        <a href="javascript:void(0);" class="service-link js-sort">Сортировать по алфавиту</a>
+                                                        <a href="javascript:void(0);" class="service-link js-reset">Сбросить фильтры</a>
+                                                    </div>
+                                                </div>
+                                                <div class="filter__collection js-filter-collection unsorted">
+                                                    <?php for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
+                                                        <a href="" class="filter-item js-filter-item js-link">
+                                                            <span>
+                                                                <?php echo $tabContent['where'][$i]; ?>
+                                                            </span>
+                                                        </a>
+                                                    <?php } ?>
+                                                    <span class="filter-item--service">
+                                                        <a href="javascript:void(0);" class="service-link service-link--more js-link">
+                                                            Показать все
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="filter-panel__wrapper js-subfilter-collection">
+                                                <div class="filter__heading">
+                                                    <div class="filter-category js-subtitle">
+                                                        Как далеко?
+                                                    </div>
+                                                </div>
+                                                <div class="filter__collection js-subfilter">
+                                                    <?php
+                                                        for ($i=0; $i <= count($tabContent['how-far'])-1; $i++){ ?>
+                                                        <a href="#" class="filter-item js-subfilter-item js-link">
+                                                            <span><?php echo $tabContent['how-far'][$i]; ?></span>
+                                                        </a>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                            <div class="js-close js-link"></div>
+                                        </div>
+                                        <div class="is-out-of-view"></div>
+                                    </div>
                                 </div>
                             <?php } ?>
                             
                             <button class="btn btn--main btn--filter">Найти</button>
                                 
-                            <div class="tab__content">
+                            <!-- <div class="tab__content">
                                 <div class="filter-panel">
                                     <div class="filter-panel__wrapper">
                                         <div class="filter__heading">
                                             <div class="filter-category js-title">
-                                                Где будем искать?
+                                                <span><?php echo $tabArray[$i-6]['title']; ?></span>
                                             </div>
                                             <div class="sorting">
                                                 <a href="javascript:void(0);" class="service-link js-sort">Сортировать по алфавиту</a>
                                                 <a href="javascript:void(0);" class="service-link js-reset">Сбросить фильтры</a>
                                             </div>
                                         </div>
-                                        <div class="filter__collection js-filter">
-                                            <?php
-                                                for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
-                                                <a href="#" class="filter-item js-filter js-link">
-                                                    <span><?php echo $tabContent['where'][$i]; ?></span>
+                                        <div class="filter__collection js-filter-collection unsorted">
+                                            <?php for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
+                                                <a href="" class="filter-item js-filter-item js-link">
+                                                    <span>
+                                                        <?php echo $tabContent['where'][$i]; ?>
+                                                    </span>
                                                 </a>
                                             <?php } ?>
-                                            <a href="#" class="service-link service-link--more js-link">Показать все</a>
+                                            <span class="filter-item--service">
+                                                <a href="javascript:void(0);" class="service-link service-link--more js-link">
+                                                    Показать все
+                                                </a>
+                                            </span>
                                         </div>
                                     </div>
 
-                                    <div class="filter-panel__wrapper">
+                                    <div class="filter-panel__wrapper js-subfilter-collection">
                                         <div class="filter__heading">
                                             <div class="filter-category js-subtitle">
                                                 Как далеко?
@@ -106,7 +162,7 @@
                                     <div class="js-close js-link"></div>
                                 </div>
                                 <div class="is-out-of-view"></div>
-                            </div>
+                            </div> -->
                         </div>
                         
                     </div>
@@ -122,8 +178,21 @@
                     <div class="grid__row">
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--transport">
-                                <img src="./img/puzzle/1-pcs.png" alt="Транспорт">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 235">
+                                    <defs>
+                                        <style>.cls-1{fill:#00A9E1;}.cls-2{clip-path:url(#clip-path);}</style>
+                                        <clipPath id="clip-path">
+                                            <path class="cls-1" d="M0,235H234.9V144.7c1-12,12.4-18.6,22.2-9.1a28.7,28.7,0,1,0,4.17-40.37,28.34,28.34,0,0,0-4.17,4.17c-9.8,9.5-21.2,2.9-22.2-9.1V0H0"/>
+                                        </clipPath>
+                                    </defs>
+                                    <title>Transport puzzle</title>
+                                    <g id="Layer_2" data-name="Layer 2">
+                                        <g id="Layer_1-2" data-name="Layer 1">
+                                            <g class="cls-2"><image width="308" height="235" xlink:href="./img/puzzle/svg puzzles/transport--puzzle.jpg"/></g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M0,235H234.9V144.7c1-12,12.4-18.6,22.2-9.1a28.7,28.7,0,1,0,4.17-40.37,28.34,28.34,0,0,0-4.17,4.17c-9.8,9.5-21.2,2.9-22.2-9.1V0H0"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Транспорт</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -132,8 +201,21 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--apartments">
-                                <img src="./img/puzzle/2-pcs.png" alt="Жилье">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 235">
+                                    <defs>
+                                        <style>.cls-1{fill:#CC0033;}.cls-2{clip-path:url(#clip-path);}</style>
+                                        <clipPath id="clip-path">
+                                            <path class="cls-1" d="M0,235H234.9V144.7c1-12,12.4-18.6,22.2-9.1a28.7,28.7,0,1,0,4.17-40.37,28.34,28.34,0,0,0-4.17,4.17c-9.8,9.5-21.2,2.9-22.2-9.1V0H0"/>
+                                        </clipPath>
+                                    </defs>
+                                    <title>Transport puzzle</title>
+                                    <g id="Layer_2" data-name="Layer 2">
+                                        <g id="Layer_1-2" data-name="Layer 1">
+                                            <g class="cls-2"><image width="308" height="235" xlink:href="./img/puzzle/svg puzzles/apartments--puzzle.jpg"/></g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M0,235H234.9V144.7c1-12,12.4-18.6,22.2-9.1a28.7,28.7,0,1,0,4.17-40.37,28.34,28.34,0,0,0-4.17,4.17c-9.8,9.5-21.2,2.9-22.2-9.1V0H0"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Жилье</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -142,8 +224,21 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--places">
-                                <img src="./img/puzzle/3-pcs.png" alt="Интересные места">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 235">
+                                    <defs>
+                                        <style>.cls-1{fill:#CC0033;}.cls-2{clip-path:url(#clip-path);}</style>
+                                        <clipPath id="clip-path">
+                                            <path class="cls-1" d="M0,235H234.9V144.7c1-12,12.4-18.6,22.2-9.1a28.7,28.7,0,1,0,4.17-40.37,28.34,28.34,0,0,0-4.17,4.17c-9.8,9.5-21.2,2.9-22.2-9.1V0H0"/>
+                                        </clipPath>
+                                    </defs>
+                                    <title>Transport puzzle</title>
+                                    <g id="Layer_2" data-name="Layer 2">
+                                        <g id="Layer_1-2" data-name="Layer 1">
+                                            <g class="cls-2"><image width="308" height="235" xlink:href="./img/puzzle/svg puzzles/places--puzzle.jpg"/></g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M0,235H234.9V144.7c1-12,12.4-18.6,22.2-9.1a28.7,28.7,0,1,0,4.17-40.37,28.34,28.34,0,0,0-4.17,4.17c-9.8,9.5-21.2,2.9-22.2-9.1V0H0"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Интересные <br/>места</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -152,8 +247,23 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--entertainment">
-                                <img src="./img/puzzle/4-pcs.png" alt="Развлечения, досуг">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 235 308.07">
+                                    <defs>
+                                        <style>.\39 c5a9ead-e32f-4690-b258-12ccaf4f23ae{fill:none;}.addac9e9-6140-4885-add3-56738ad0c368{clip-path:url(#4dabf902-c4d4-45aa-b30e-2c734c1ebbc6);}
+                                        </style>
+                                        <clipPath id="4dabf902-c4d4-45aa-b30e-2c734c1ebbc6" transform="translate(0 0)">
+                                            <path class="9c5a9ead-e32f-4690-b258-12ccaf4f23ae" d="M235,0V234.9H144.7c-12,1-18.6,12.4-9.1,22.2a28.7,28.7,0,1,1-36.2,0c9.5-9.8,2.9-21.2-9.1-22.2H0V0"/>
+                                        </clipPath>
+                                    </defs>
+                                    <g id="61fb2d9f-9d38-4635-bc4b-26d0e210169c" data-name="Layer 2">
+                                        <g id="29fb40e2-cb77-4d63-ae62-042dd1dfface" data-name="Слой 2">
+                                            <g class="addac9e9-6140-4885-add3-56738ad0c368">
+                                                <image width="235" height="308" xlink:href="./img/puzzle/svg puzzles/entertainment--puzzle.jpg"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M235,0V234.9H144.7c-12,1-18.6,12.4-9.1,22.2a28.7,28.7,0,1,1-40.37,4.17,28.34,28.34,0,0,1,4.17-4.17c9.5-9.8,2.9-21.2-9.1-22.2H0V0" transform="translate(0 0)"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Развлечения, <br/>досуг</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -162,8 +272,22 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--events">
-                                <img src="./img/puzzle/5-pcs.png" alt="События, фестивали">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 235 235">
+                                    <defs>
+                                        <style>.\31 9478705-a1b3-47f8-83c5-dc824e2b7f63{fill:none;}.ad343788-c66b-4610-a960-80ab1d22c5cd{clip-path:url(#a4c6572c-cb76-4d7c-9dfb-90c5f144c204);}</style>
+                                        <clipPath id="a4c6572c-cb76-4d7c-9dfb-90c5f144c204" transform="translate(-73 0)">
+                                            <path class="19478705-a1b3-47f8-83c5-dc824e2b7f63" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                        </clipPath>
+                                    </defs>
+                                    <g id="0b8138bc-5763-4db7-89d3-865d3d27952e" data-name="Layer 2">
+                                        <g id="f971cf8b-4516-4bd9-b88b-d4c31cdf487c" data-name="Слой 2">
+                                            <g class="ad343788-c66b-4610-a960-80ab1d22c5cd">
+                                                <image width="235" height="235" transform="translate(0 0)" xlink:href="./img/puzzle/svg puzzles/events--puzzle.jpg"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M308.07,235H73.17V144.7c-1-12-12.4-18.6-22.2-9.1A28.7,28.7,0,1,1,46.8,95.23,28.34,28.34,0,0,1,51,99.4c9.8,9.5,21.2,2.9,22.2-9.1V0h234.9" transform="translate(-73 0)"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">События,<br/>фестивали</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -172,8 +296,22 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--shopping">
-                                <img src="./img/puzzle/6-pcs.png" alt="Шопинг">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 235">
+                                    <defs>
+                                        <style>.e413d7a9-0547-49fb-9d61-f4b01a0b5ab2{fill:none;}.\38 8acb354-6830-43b4-bd59-9363e00c874c{clip-path:url(#523fa800-9be2-48b1-abe0-86c4c15f49c1);}</style>
+                                        <clipPath id="523fa800-9be2-48b1-abe0-86c4c15f49c1" transform="translate(0 0)">
+                                            <path class="e413d7a9-0547-49fb-9d61-f4b01a0b5ab2" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                        </clipPath>
+                                    </defs>
+                                    <g id="1691b463-4710-48f1-a113-00196f02bbc9" data-name="Layer 2">
+                                        <g id="b85334c1-ff1e-4c10-ba0d-b33c7150cc9b" data-name="Слой 2">
+                                            <g class="88acb354-6830-43b4-bd59-9363e00c874c">
+                                                <image width="308" height="235" transform="translate(0 0)" xlink:href="./img/puzzle/svg puzzles/shopping--puzzle.jpg"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Шопинг</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -182,8 +320,22 @@
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
                             <div class="promo-block promo-block--food">
-                                <img src="./img/puzzle/7-pcs.png" alt="Еда">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 235">
+                                    <defs>
+                                        <style>.\34 f70dcbd-347a-4461-9bf7-1f4ec881ffba{fill:none;}.\31 e0d3b6c-216d-48d1-bebe-9549ad037cde{clip-path:url(#6caf699f-c378-446e-8f84-85b64805b8ac);}</style>
+                                        <clipPath id="6caf699f-c378-446e-8f84-85b64805b8ac" transform="translate(0 0)">
+                                            <path class="4f70dcbd-347a-4461-9bf7-1f4ec881ffba" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                        </clipPath>
+                                    </defs>
+                                    <g id="8eca893a-abc1-4d88-8c3c-90f91c6aa7e8" data-name="Layer 2">
+                                        <g id="9c792d30-7093-4c21-abf3-72ed8411cf9d" data-name="Слой 2">
+                                            <g class="1e0d3b6c-216d-48d1-bebe-9549ad037cde">
+                                                <image width="308" height="235" transform="translate(0 0)" xlink:href="./img/puzzle/svg puzzles/food--puzzle.jpg"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Еда</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
@@ -191,88 +343,27 @@
                             </div>
                         </div>
                         <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--inctitutions">
-                                <img src="./img/puzzle/8-pcs.png" alt="Учреждения, прочее">
-                                <img class="img-dimm" src="./img/puzzle/black.png" alt="">
+                            <div class="promo-block promo-block--institutions">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 235">
+                                    <defs>
+                                        <style>.bfb962c5-a142-4ec6-934a-36fafc865e23{fill:none;}.\36 182ce53-caad-417f-bb2f-35a2c0dc7e47{clip-path:url(#c0d6a077-a738-4971-97f4-e5d5535983bc);}
+                                        </style>
+                                        <clipPath id="c0d6a077-a738-4971-97f4-e5d5535983bc" transform="translate(0 0)">
+                                            <path class="bfb962c5-a142-4ec6-934a-36fafc865e23" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                        </clipPath>
+                                    </defs>
+                                    <g id="9be7ccdf-1442-4030-a7f7-048e3ff7252e" data-name="Layer 2">
+                                        <g id="357945e0-50ab-4231-9548-5ac8f251c44b" data-name="Слой 2">
+                                            <g class="6182ce53-caad-417f-bb2f-35a2c0dc7e47">
+                                                <image width="308" height="235" transform="translate(0 0)" xlink:href="./img/puzzle/svg puzzles/institutions--puzzle.jpg"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <path class="puzzle-overflow" d="M308,235H73.1V144.7c-1-12-12.4-18.6-22.2-9.1a28.7,28.7,0,1,1,0-36.2c9.8,9.5,21.2,2.9,22.2-9.1V0H308"/>
+                                </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Учреждения,</br>прочее</div>
                                     <a href="#" class="btn btn--promo">Смотреть</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid--promo mobile-only">
-                    <div class="grid__row">
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--transport">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/1-transport-puzzle.png" alt="Транспорт">
-                                <div class="promo__action">
-                                    <div class="promo-title">Транспорт</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--apartments">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/2-apartments-puzzle.png" alt="Жилье">
-                                <div class="promo__action">
-                                    <div class="promo-title">Жилье</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--places">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/3-places-puzzle.png" alt="Интересные места">
-                                <div class="promo__action">
-                                    <div class="promo-title">Интересные <br/>места</div>
-                                </div>                                              
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--entertainment">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/4-entertainment-puzzle.png" alt="Развлечения, досуг">
-                                <div class="promo__action">
-                                    <div class="promo-title">Развлечения, <br/>досуг</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--food">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/5-food-puzzle.png" alt="Еда">
-                                <div class="promo__action">
-                                    <div class="promo-title">Еда</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--events">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/6-events-puzzle.png" alt="События, фестивали">
-                                <div class="promo__action">
-                                    <div class="promo-title">События,<br/>фестивали</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--inctitutions">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/7-institutions-puzzle.png" alt="Учреждения, прочее">
-                                <div class="promo__action">
-                                    <div class="promo-title">Учреждения,</br>прочее</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__column fr-4 fr-ml-2">
-                            <div class="promo-block promo-block--shopping">
-                                <a href="#" class="btn btn--promo"></a>
-                                <img src="./img/puzzle/mobile/8-shopping-puzzle.png" alt="Шопинг">
-                                <div class="promo__action">
-                                    <div class="promo-title">Шопинг</div>
                                 </div>
                             </div>
                         </div>

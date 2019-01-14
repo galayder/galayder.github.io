@@ -9,6 +9,43 @@ $tabArray = array(
     'стоимость'
 );
 
+// $tabArray = array(
+//     $whereArray = array(
+//         'где',
+//         'title' => 'Где будем искать?',
+//     ),
+//     $whatArray = array(
+//         'что',
+//         'title' => 'Что ищем?',
+//     ),
+//     $whenArray = array(
+//         'когда',
+//         'title' => 'На когда планируете?',
+//     ),
+//     $whoArray = array(
+//         'с кем',
+//         'title' => 'В какой компании?',
+//     ),
+//     $byArray = array(
+//         'на чем',
+//         'title' => 'Какой транспорт?',
+//     ),
+//     $priceArray = array(
+//         'стоимость',
+//         'title' => 'Какой бюджет?',
+//     ),
+// );
+
+
+$iconArray = array(
+    'img/icons/icon--geo.svg',
+    'img/icons/icon--puzzle.svg',
+    'img/icons/icon--calendar.svg',
+    'img/icons/icon--people.svg',
+    'img/icons/icon--car.svg',
+    'img/icons/icon--wallet.svg',
+);
+
 $tabContent = array(
     'where' => array(
         'киев',
@@ -48,15 +85,4 @@ $tabContent = array(
     ),
 );
 
-// function getSubArray($array = array(), $firstItem = 0) {
-//     if (!empty($array[$firstItem])) {
-//         foreach ($array[$firstItem] as $items) {
-//             echo $items[$tabContent];
-//             loop_array($array, $items['where']);
-//         };
-//     }
-// }
-
 ?>
-
-<!-- 'день рождения','отпуск','уделить время близким','мальчишник','девичник','свадьба','деловая встреча','юбилей','медовый месяц','День святого Валентина','Новый Год','Хеллоуин','Рождество православное','Рождество католическое','майские праздники','зимние праздники','годовщина свадьбы','школьные каникулы','День матери','День отца','8 марта','Пасха','Троица','День Независимости Украины','День защитника Украины' -->

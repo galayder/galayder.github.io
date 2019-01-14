@@ -163,7 +163,7 @@ textarea {
   flex: 1 1 0; }
   .logo img {
     display: block;
-    width: 100%; }
+    width: 175px; }
 
 .menu {
   margin-right: 0;
@@ -327,8 +327,6 @@ textarea {
     transform: rotate(180deg);
     transform-origin: center;
     transition: transform .15s; }
-  .filter:active, .filter:focus {
-    outline: none; }
   .filter__title, .filter__results {
     flex: 1 1 100%;
     display: flex;
@@ -340,6 +338,8 @@ textarea {
     line-height: 0;
     border-bottom: 1px solid #ccc;
     background-color: #fff; }
+    .filter__title:active, .filter__title:focus {
+      outline: none; }
   .filter__results {
     padding: 5px;
     border-bottom: 1px solid #ccc;

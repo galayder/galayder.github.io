@@ -77,38 +77,34 @@
             <div class="filter-block__inner">
                 <div class="filter-block__item">
 
-                    <?php for ($i=0; $i <= count($tabContent)-1; $i++){ ?>
+                    <?php for ($i=0; $i < count($tabContent); $i++){ ?>
 
                         <div class="filter accordion">
                             <div class="filter__title">
                                 <i class="icon">
                                     <?php echo file_get_contents($iconArray[$i]); ?>
                                 </i>
-                                <span><?php echo $tabContent[$i+1]['title']; ?></span>
+                                <span><?php echo $tabContent[$i]['title']; ?></span>
                                 <i class="icon icon--arrow-down">
                                     <?php echo file_get_contents("img/icon--arrow-down.svg"); ?>
                                 </i>
                             </div>
-                            <div class="filter__results filter__results--<?php echo $tabContent[$i+1]['class']; ?>">
-
-                                <?php for ($j=1; $j <= count($tabContent[$i+1])-1; $j++){ ?>
+                            <div class="filter__results filter__results--<?php echo $tabContent[$i]['class']; ?>">
+                                <?php for ($j=2; $j < count($tabContent[$i+1]); $j++){ ?>
                                     <div class="filter filter--second-level accordion--inner">
                                         <div class="filter__title">
-                                            <span><?php echo $tabContent[$i+1][11]; ?></span>
+                                            <span><?php echo $tabContent[$i+1][$i]['sub-title']; ?></span>
                                             <i class="icon icon--arrow-down">
                                                 <?php echo file_get_contents("img/icon--arrow-down.svg"); ?>
                                             </i>
                                         </div>
                                         <div class="filter__results">
-                                            <div class="filter filter--third-level js-selectable">1</div>
-                                            <div class="filter filter--third-level js-selectable">2</div>
-                                            <div class="filter filter--third-level js-selectable">3</div>
-                                            <div class="filter filter--third-level js-selectable">4</div>
-                                            <div class="filter filter--third-level js-selectable">5</div>
+                                            <div class="filter filter--third-level js-selectable">
+                                                <!-- <span><?php echo $tabContent[$i+1][$j+11][$k]; ?></span> -->
+                                            </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-
                             </div>
                         </div>
 

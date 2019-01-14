@@ -19,12 +19,12 @@ $iconArray = array(
 );
 
 $tabContent = array(
-    1 => array(
+    array(
         'class' => 'where',
         'title' => 'где',
-        11 => array(
+        array(
             'sub-title' => 'где будем искать?',
-            111 => array(
+            array(
                 'киев',
                 'львов',
                 'харьков',
@@ -39,27 +39,27 @@ $tabContent = array(
                 'ужгород',
                 'луцк',
                 'мариуполь',
-                'кривой рог',
+                'кривой рог'
             ),
         ),
-        12 => array(
+        array(
             'sub-title' => 'как далеко?',
-            121 => array(
+            array(
                 'в центре',
                 'в пределах города',
                 'до 20 км от города',
                 'до 50 км от города',
                 'до 100 км от города',
-                'до 150 км от города',
+                'до 150 км от города'
             ),
         ),
     ),
-    2 => array(
+    array(
         'class' => 'what',
         'title' => 'что',
-        21 => array(
+        array(
             'sub-title' => 'что ищем?',
-            'жилье' => array(
+            array(
                 'sub-title' => 'какой тип жилья',
                 'отель',
                 'квартира',
@@ -79,14 +79,14 @@ $tabContent = array(
                 'шопинг',
             ),
         ),
-        22 => array(
+        array(
             'sub-title' => 'какие пожелания?'
         ),
     ),
-    3 => array(
+    array(
         'class' => 'when',
         'title' => 'когда',
-        31 => array(
+        array(
             'sub-title' => 'когда?',
             'сегодня',
             'завтра',
@@ -95,25 +95,25 @@ $tabContent = array(
             'period' => 'период времени',
         ),
     ),
-    4 => array(
+    array(
         'class' => 'who',
         'title' => 'с кем',
-        41 => array(
+        array(
             'sub-title' => 'в какой компании?',
             'парой',
             'с друзьями',
         ),
-        42 => array(
+        array(
             'sub-title' => 'есть ли повод?',
             'юбилей',
             'годовщина',
         ),
         'input' => 'какие пожелания?',
     ),
-    5 => array(
+    array(
         'class' => 'by',
         'title' => 'На чем',
-        51 => array(
+        array(
             'sub-title' => 'какой транспорт?',
             'пешком',
             'городской транспорт',
@@ -122,10 +122,10 @@ $tabContent = array(
             'искать попутное авто',
         ),
     ),
-    6 => array(
+    array(
         'class' => 'price',
         'title' => 'стоимость',
-        61 => array(
+        array(
             'sub-title' => 'какой бюджет?',
             'до 200 грн',
             'до 500 грн',

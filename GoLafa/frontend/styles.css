@@ -139,12 +139,19 @@ textarea {
   flex-wrap: wrap;
   justify-content: center; }
   .tabbed-menu__title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100%;
     font-size: 15px;
     margin-bottom: 10px;
     color: #fff; }
+    .tabbed-menu__title span:first-letter {
+      text-transform: uppercase; }
+    .tabbed-menu__title .service-link {
+      color: #fff; }
 
 .tab__wrapper {
   position: relative;
@@ -252,6 +259,8 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   margin-right: 25px; }
+  .filter__collection span:first-letter {
+    text-transform: uppercase; }
 
 .filter-item {
   display: flex;
@@ -262,9 +271,8 @@ textarea {
   text-decoration: none;
   font-size: 15px;
   border: 1px solid #cccccc;
-  color: #333333; }
-  .filter-item span::first-letter {
-    text-transform: uppercase; }
+  color: #333333;
+  user-select: none; }
   .filter-item:hover {
     border-color: #9933CC;
     color: #9933CC; }
@@ -275,6 +283,12 @@ textarea {
     .filter-item.is-selected:hover {
       background-color: #B040E8;
       border-color: #B040E8; }
+  .filter-item:first-letter {
+    text-transform: uppercase; }
+
+.filter-item--service {
+  order: 1;
+  margin-top: 15px; }
 
 .service-link {
   padding: 4px 10px;
@@ -282,8 +296,6 @@ textarea {
   color: #333333; }
   .service-link:hover {
     color: #f59e1c; }
-  .service-link--more {
-    margin-top: 15px; }
 
 .js-close {
   position: absolute;
@@ -514,9 +526,9 @@ textarea {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 4px; }
-    .card__content .card-category--shoping {
+    .card__content .card-category--shopping {
       color: #cc0099; }
-    .card__content .card-category--inctitutions {
+    .card__content .card-category--institutions {
       color: #3466fe; }
     .card__content .card-category--transport {
       color: #0099cc; }
@@ -528,7 +540,7 @@ textarea {
       color: #9900cc; }
     .card__content .card-category--entertainment {
       color: #cc3300; }
-    .card__content .card-category--tours {
+    .card__content .card-category--places {
       color: #cc9900; }
   .card__content .card-name {
     flex-grow: 1;
@@ -680,7 +692,8 @@ body.stop-scroll {
   padding: 10px 33px;
   border-radius: 35px;
   border: 2px solid;
-  text-decoration: none; }
+  text-decoration: none;
+  user-select: none; }
 
 .search-bar {
   display: flex;
@@ -719,7 +732,7 @@ body.stop-scroll {
     align-items: center; }
     .header__content .logo img {
       display: block;
-      width: 100%; }
+      width: 175px; }
   .header__content .header__actions {
     position: relative;
     display: flex; }
@@ -830,198 +843,128 @@ body.stop-scroll {
       margin-top: 15px;
       font-size: 15px;
       font-weight: normal;
-      transition: all .25s; }
+      transition: all .2s; }
 
 .promo-block {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
+  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: #121212; }
-  .promo-block img {
+  .promo-block svg {
     position: absolute;
     display: block;
-    width: 131%;
+    pointer-events: none;
+    height: 100%;
     top: 0;
-    left: 0;
-    pointer-events: none; }
-  .promo-block .img-dimm {
-    opacity: 0; }
-  .promo-block--transport img {
-    z-index: 8; }
-  .promo-block--transport .img-dimm {
-    transform: rotate(180deg); }
-  .promo-block--transport:hover .btn--promo {
-    border-color: #0099cc;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--transport:hover .btn--promo:hover {
-      background-color: #0099cc; }
-  .promo-block--apartments img {
-    z-index: 7; }
-  .promo-block--apartments .img-dimm {
-    transform: rotate(180deg); }
-  .promo-block--apartments:hover .btn--promo {
-    border-color: #cc6600;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--apartments:hover .btn--promo:hover {
-      background-color: #cc6600; }
-  .promo-block--places img {
-    z-index: 6; }
-  .promo-block--places .img-dimm {
-    transform: rotate(180deg); }
-  .promo-block--places:hover .btn--promo {
-    border-color: #cc9900;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--places:hover .btn--promo:hover {
-      background-color: #cc9900; }
-  .promo-block--entertainment img {
-    z-index: 5;
-    width: 101%;
-    top: -1px; }
-  .promo-block--entertainment .img-dimm {
-    width: 131%;
-    transform-origin: 50.4% 65.5%;
-    right: 0;
-    transform: rotate(270deg); }
-  .promo-block--entertainment:hover .btn--promo {
-    border-color: #cc3300;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--entertainment:hover .btn--promo:hover {
-      background-color: #cc3300; }
-  .promo-block--events img {
-    z-index: 1;
-    width: 100%; }
-  .promo-block--events .img-dimm {
-    width: 131%;
-    transform-origin: 50.4% 65.5%;
-    transform: rotate(270deg); }
-  .promo-block--events:hover .btn--promo {
-    border-color: #9900cc;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--events:hover .btn--promo:hover {
-      background-color: #9900cc; }
-  .promo-block--shopping img {
-    z-index: 2;
-    left: unset;
-    top: unset;
-    right: 0;
-    bottom: -1px;
-    right: -1px; }
-    @media screen and (max-width: 480px) {
-      .promo-block--shopping img {
-        transform-origin: 61.6%;
-        transform: rotate(-90deg);
-        z-index: 6; } }
-  .promo-block--shopping:hover .btn--promo {
-    border-color: #cc0099;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--shopping:hover .btn--promo:hover {
-      background-color: #cc0099; }
-  .promo-block--food img {
-    z-index: 3;
-    left: unset;
-    top: unset;
-    right: 0;
-    bottom: -1px;
-    right: -1px; }
-    @media screen and (max-width: 480px) {
-      .promo-block--food img {
-        transform-origin: 61.6%;
-        transform: rotate(90deg); } }
-  .promo-block--food:hover .btn--promo {
-    border-color: #009900;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--food:hover .btn--promo:hover {
-      background-color: #009900; }
-  .promo-block--inctitutions img {
-    z-index: 4;
-    left: unset;
-    top: unset;
-    right: -1px;
-    bottom: -1px; }
-  .promo-block--inctitutions:hover .btn--promo {
-    border-color: #3466fe;
-    opacity: 1;
-    color: #fff; }
-    .promo-block--inctitutions:hover .btn--promo:hover {
-      background-color: #3466fe; }
+    left: 0; }
+    .promo-block svg path.puzzle-overflow {
+      fill: transparent;
+      opacity: 0;
+      transition: all .45s; }
+  .promo-block--transport {
+    background-color: #00A9E1; }
+    .promo-block--transport svg {
+      z-index: 8; }
+    .promo-block--transport:hover .btn--promo {
+      border-color: #0099cc;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--transport:hover .btn--promo:hover {
+        background-color: #0099cc; }
+  .promo-block--apartments {
+    background-color: #cc6600; }
+    .promo-block--apartments svg {
+      z-index: 7; }
+    .promo-block--apartments:hover .btn--promo {
+      border-color: #cc6600;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--apartments:hover .btn--promo:hover {
+        background-color: #cc6600; }
+  .promo-block--places {
+    background-color: #cc9900; }
+    .promo-block--places svg {
+      z-index: 6; }
+    .promo-block--places:hover .btn--promo {
+      border-color: #cc9900;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--places:hover .btn--promo:hover {
+        background-color: #cc9900; }
+  .promo-block--entertainment {
+    background-color: #cc3300; }
+    .promo-block--entertainment svg {
+      width: 100%;
+      height: auto;
+      z-index: 5; }
+    .promo-block--entertainment:hover .btn--promo {
+      border-color: #cc3300;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--entertainment:hover .btn--promo:hover {
+        background-color: #cc3300; }
+  .promo-block--events {
+    background-color: #9900cc; }
+    .promo-block--events svg {
+      z-index: 1;
+      right: 0;
+      left: unset; }
+    .promo-block--events:hover .btn--promo {
+      border-color: #9900cc;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--events:hover .btn--promo:hover {
+        background-color: #9900cc; }
+  .promo-block--shopping {
+    background-color: #cc0099; }
+    .promo-block--shopping svg {
+      z-index: 2;
+      right: 0;
+      left: unset; }
+    .promo-block--shopping:hover .btn--promo {
+      border-color: #cc0099;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--shopping:hover .btn--promo:hover {
+        background-color: #cc0099; }
+  .promo-block--food {
+    background-color: #009900; }
+    .promo-block--food svg {
+      z-index: 3;
+      right: 0;
+      left: unset; }
+    .promo-block--food:hover .btn--promo {
+      border-color: #009900;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--food:hover .btn--promo:hover {
+        background-color: #009900; }
+  .promo-block--institutions {
+    background-color: #3466fe; }
+    .promo-block--institutions svg {
+      z-index: 4;
+      right: 0;
+      left: unset; }
+    .promo-block--institutions:hover .btn--promo {
+      border-color: #3466fe;
+      opacity: 1;
+      color: #fff; }
+      .promo-block--institutions:hover .btn--promo:hover {
+        background-color: #3466fe; }
   .promo-block #brightness {
     opacity: 0; }
-  .promo-block:hover .img-dimm {
-    opacity: .5;
-    transition: opacity .25s; }
+  .promo-block:hover path.puzzle-overflow {
+    fill: black;
+    opacity: .6;
+    transition: all .2s; }
   .promo-block .promo__action {
     z-index: 9; }
-
-.grid--promo.mobile-only {
-  display: none;
-  margin-bottom: 20px;
-  padding: 0 10px; }
-  @media screen and (max-width: 480px) {
-    .grid--promo.mobile-only {
-      display: block; } }
-  .grid--promo.mobile-only .promo-block .promo-title {
-    padding-bottom: 55px; }
-  .grid--promo.mobile-only .promo-block .btn--promo {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: none;
-    padding: 0; }
-  .grid--promo.mobile-only .promo-block img {
-    width: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; }
-  .grid--promo.mobile-only .promo-block--transport img {
-    z-index: 8;
-    width: 131%; }
-  .grid--promo.mobile-only .promo-block--apartments img {
-    z-index: 7; }
-  .grid--promo.mobile-only .promo-block--entertainment img {
-    z-index: 6;
-    width: 131%;
-    right: 0;
-    left: unset; }
-  .grid--promo.mobile-only .promo-block--places img {
-    z-index: 5; }
-  .grid--promo.mobile-only .promo-block--food img {
-    width: 131%;
-    z-index: 4;
-    left: 0;
-    top: 0;
-    transform-origin: unset;
-    transform: unset; }
-  .grid--promo.mobile-only .promo-block--events img {
-    z-index: 3;
-    width: 100%; }
-  .grid--promo.mobile-only .promo-block--shopping img {
-    width: 131%;
-    z-index: 2;
-    left: unset;
-    right: 0;
-    transform-origin: unset;
-    transform: unset; }
-  .grid--promo.mobile-only .promo-block--inctitutions img {
-    z-index: 1;
-    left: unset;
-    top: unset;
-    right: 0;
-    bottom: 0; }
 
 html, body {
   height: 100%;
