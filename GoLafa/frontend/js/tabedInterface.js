@@ -16,8 +16,8 @@ $(document).ready(function() {
         filtersToRemember = $('.js-filters-selected');
         subFiltersToRemember = $('.js-subfilters-selected');
 
-    // filterItem.text()[0].toUpperCase() + filterItem.text().substring(1);
-
+        toCapitalize = $('.is-first-cap');
+  
     // Avoid 'bubbling' effect (to prevent a click of element which is under aimed element)
     $('.js-link').click( function(event) {
         event.preventDefault();
@@ -124,7 +124,11 @@ $(document).ready(function() {
         }
     };
 
-    filterItem.click(rememberFilter);
+    filterItem.on('click', function () {
+        rememberFilter();
+    })
+
+    // filterItem.click(rememberFilter);
 
     // Remember selected filters 2nd level
     function rememberSubFilter() {

@@ -99,9 +99,11 @@
                                             </i>
                                         </div>
                                         <div class="filter__results">
-                                            <div class="filter filter--third-level js-selectable">
-                                                <!-- <span><?php echo $tabContent[$i+1][$j+11][$k]; ?></span> -->
-                                            </div>
+                                            <?php for ($k=2; $k < count($tabContent[$i+1]); $k++){ ?>
+                                                <div class="filter filter--third-level js-selectable">
+                                                    <span><?php echo $tabContent[$i+1][$j+11][$k]; ?></span>
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 <?php } ?>

@@ -148,10 +148,14 @@ textarea {
     font-size: 15px;
     margin-bottom: 10px;
     color: #fff; }
-    .tabbed-menu__title span:first-letter {
-      text-transform: uppercase; }
     .tabbed-menu__title .service-link {
       color: #fff; }
+
+.selected-filters {
+  display: flex;
+  align-items: center; }
+  .selected-filters li {
+    list-style-type: none; }
 
 .tab__wrapper {
   position: relative;
@@ -200,8 +204,6 @@ textarea {
   background-color: #fff;
   cursor: pointer;
   transition: background .25s; }
-  .tab span::first-letter {
-    text-transform: uppercase; }
   .tab:hover {
     background-color: #fafafa;
     transition: background .25s; }
@@ -259,8 +261,6 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   margin-right: 25px; }
-  .filter__collection span:first-letter {
-    text-transform: uppercase; }
 
 .filter-item {
   display: flex;
@@ -283,8 +283,6 @@ textarea {
     .filter-item.is-selected:hover {
       background-color: #B040E8;
       border-color: #B040E8; }
-  .filter-item:first-letter {
-    text-transform: uppercase; }
 
 .filter-item--service {
   order: 1;

@@ -52,8 +52,10 @@
                         <div class="tabbed-menu__title">
                             <span class="js-init-state">Выберите один или несколько фильтров</span>
                             <a href="javascript:void(0);" class="service-link js-reset-all">Сбросить фильтры</a>
-                            <span class="js-filters-selected"></span>
-                            <span class="js-subfilters-selected"></span>
+                            <div class="selected-filters">
+                                <span class="js-filters-selected is-first-cap"></span>
+                                <span class="js-subfilters-selected is-first-cap"></span>
+                            </div>
                         </div>
 
                         <div class="tab__wrapper">
