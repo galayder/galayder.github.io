@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GoLafa</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
+
 </head>
 <body>
     <div id="root" class="global-wrapper">
@@ -48,83 +50,151 @@
             <div class="banner__subtitle">Легко спланируйте свой вечер, выходные </br>или путешествие всей жизни</div>
             <nav class="filter-block">
                 <div class="filter-block__inner">
+                    <?php include_once("tabs.php"); ?>  
                     <div class="tabbed-menu">
                         <div class="tabbed-menu__title">
-                            <span class="js-init-state">Выберите один или несколько фильтров</span>
-                            <a href="javascript:void(0);" class="service-link js-reset-all">Сбросить фильтры</a>
-                            <div class="selected-filters">
-                                <span class="js-filters-selected is-first-cap"></span>
-                                <span class="js-subfilters-selected is-first-cap"></span>
+                            <div class="title-block">
+                                Выберите один или несколько фильтров
                             </div>
+                            <a href="javascript:void(0);" class="service-link js-reset-all">Сбросить фильтры</a>
+                            <p class="selected-filters">
+                                <?php for ($v=1; $v<=count($inp)-1; $v++){  ?>
+                                    <span
+                                        class="selected-filters__item"
+                                        id="<?php echo $inp[$v]; ?>"
+                                    >
+                                    </span>
+                                <?php } ?>
+                            </p>
                         </div>
-
                         <div class="tab__wrapper">
-                            <?php include_once("tabs.php"); ?>
-
-                            <?php for ($i=0; $i <= count($tabArray)-1; $i++){ ?>
-                                <div class="tab js-tab" id="<?php echo $i; ?>">
-                                    <span><?php echo $tabArray[$i]; ?></span>
-                                    <i class="icon icon--arrow"></i>
-                                </div>
+                            <!-- Main tabs -->
+                            <?php for ($m=1; $m<=6; $m++){ ?>
+                                <i id="m<?php echo $m; ?>"
+                                    class="tab js-tab"
+                                    onclick="me('<?php echo $m; ?>')"
+                                > 
+                                    <?php echo $menu[$m]; ?>
+                                </i>
                             <?php } ?>
-                            
-                            <button class="btn btn--main btn--filter">Найти</button>
-                                
+                            <!-- FIND BUTTON -->
+                            <button href="http://test1.golafa.com.ua/promotions_castle_online_Kiyv/" id="nay" class="btn btn--main btn--filter" onclick="me('<?php echo $m; ?>')">
+                                Найти
+                            </button>
+
+                            <!-- Filter collection -->
                             <div class="tab__content">
-                                <div class="filter-panel">
-                                    <div class="filter-panel__wrapper">
+                                <?php for ($m=1; $m<7; $m++) { ?>
+                                    <div 
+                                        class="filter__collection js-filter-collection" 
+                                        id="v<?php echo $m; ?>r"
+                                    >
                                         <div class="filter__heading">
-                                            <div class="filter-category js-title">
-                                                Где будем искать?
-                                            </div>
+                                            <div class="filter-category js-title"> <?php echo $zagm[$m]; ?> </div>
                                             <div class="sorting">
                                                 <a href="javascript:void(0);" class="service-link js-sort">Сортировать по алфавиту</a>
+                                                <a href="javascript:void(0);" class="service-link js-popular">Сортировать по популярности</a>
                                                 <a href="javascript:void(0);" class="service-link js-reset">Сбросить фильтры</a>
                                             </div>
+                                            <div class="sorting"></div>
                                         </div>
-                                        <div class="filter__collection js-filter-collection unsorted">
-                                            <?php for ($i=0; $i <= count($tabContent['where'])-1; $i++){ ?>
-                                                <a href="" class="filter-item js-filter-item js-link">
-                                                    <span>
-                                                        <?php echo $tabContent['where'][$i]; ?>
-                                                    </span>
-                                                </a>
-                                            <?php } ?>
-                                            <span class="filter-item--service">
-                                                <a href="javascript:void(0);" class="service-link service-link--more js-link">
-                                                    Показать все
-                                                </a>
-                                            </span>
-                                        </div>
+                                        <?php for ($n=0; $n <= count(${'v'.$m})-1; $n++) { ?>
+                                            <i class="filter-item js-filter-item"
+                                                href="#" id="v<?php echo $m; ?><?php echo $n; ?>"
+                                                onclick="u1('v','<?php echo $n; ?>','mm1','v<?php echo $m; ?>r',<?php echo $m; ?>)"
+                                            >
+                                                <?php echo strtolower(${'v'.$m}[$n]); ?>
+                                            </i>
+                                        <?php } ?>
+                                        <span class="filter-item--service">
+                                            <a href="javascript:void(0);" class="service-link service-link--more js-link">
+                                                Показать все
+                                            </a>
+                                        </span>
                                     </div>
-
-                                    <div class="filter-panel__wrapper js-subfilter-collection">
-                                        <div class="filter__heading">
-                                            <div class="filter-category js-subtitle">
-                                                Как далеко?
-                                            </div>
-                                        </div>
-                                        <div class="filter__collection js-subfilter">
-                                            <?php
-                                                for ($i=0; $i <= count($tabContent['how-far'])-1; $i++){ ?>
-                                                <a href="#" class="filter-item js-subfilter-item js-link">
-                                                    <span><?php echo $tabContent['how-far'][$i]; ?></span>
-                                                </a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                    <div class="js-close js-link"></div>
+                                <?php } ?>
+                                <div class="input-price">
+                                    <span class="input-label">от</span>
+                                    <input class="input" type="number" min="0" max="9998" placeholder="0" id="priceMin">
+                                    <span class="input-label">до</span>
+                                    <input class="input" type="number" min="9999" max="99999" id="priceMax">
                                 </div>
+
+                                <?php for ($m=1; $m<10; $m++) { $m1=$m-1; ?>
+                                    <div
+                                        id="n2<?php echo $m1; ?>r"
+                                        class="filter__collection js-subfilter-collection"
+                                    >
+                                        <div class="subfilter-title">
+                                            <?php echo $subTitle[2]; ?>
+                                        </div>
+                                        <?php for ($n=0; $n <= count(${'n2'.$m})-1; $n++) { ?>
+                                            <i
+                                                id="n2<?php echo $m; ?><?php echo $n; ?>"
+                                                class="filter-item js-filter-item"
+                                                onclick="u2('n2','<?php echo $n; ?>','2','n2<?php echo $m; ?>r',<?php echo $m; ?>)"
+                                            >
+                                                <?php echo ${'n2'.$m}[$n]; ?>
+                                            </i>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                                <div
+                                    id="n10r"
+                                    class="filter__collection js-subfilter-collection"
+                                >
+                                    <div class="subfilter-title">
+                                        <?php echo $subTitle[1]; ?>
+                                    </div>
+                                    <?php for ($b=0; $b <= count($n11)-1; $b++) { ?>
+                                        <i
+                                            id="n11<?php echo $b; ?>"
+                                            class="filter-item js-filter-item"
+                                            onclick="u2('n1','<?php echo $b; ?>','1','','1')"
+                                        >
+                                            <?php echo $n11[$b]; ?>
+                                        </i>
+                                    <?php } ?>
+                                    <span class="filter-item--service">
+                                        <a href="javascript:void(0);" class="service-link service-link--more js-link">
+                                            Показать все
+                                        </a>
+                                    </span>
+                                </div>
+
+                                <div id="datepicker">
+                                    <span class="date filter-category">Выберите дату</span>
+                                </div>
+
+                                <div
+                                    id="n40r"
+                                    class="filter__collection js-subfilter-collection"
+                                >
+                                    <div class="subfilter-title">
+                                        <?php echo $subTitle[4]; ?>
+                                    </div>
+                                    <?php for ($b=0; $b <= count($n41)-1; $b++) { ?>
+                                        <i
+                                            id="n41<?php echo $b; ?>"
+                                            class="filter-item js-filter-item"
+                                            onclick="u2('n4','<?php echo $b; ?>','4','','1')"
+                                        >
+                                            <?php echo $n41[$b]; ?>
+                                        </i>
+                                    <?php } ?>
+                                </div>
+
+                                <div class="js-close js-link"></div>
                                 <div class="is-out-of-view"></div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </nav>
         </section>
 
-        <section class="content"> 
+        <section class="content">
+            <div class="js-hide-trigger"></div>
             <div class="content-wrapper">
 
                 <div class="content__title">Всё необходимое для ваших планов</div>
@@ -149,7 +219,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Транспорт</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +242,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Жилье</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +265,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Интересные <br/>места</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>                                              
                             </div>
                         </div>
@@ -220,7 +290,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Развлечения, <br/>досуг</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +314,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">События,<br/>фестивали</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +338,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Шопинг</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +362,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Еда</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -317,7 +387,7 @@
                                 </svg>
                                 <div class="promo__action">
                                     <div class="promo-title">Учреждения,</br>прочее</div>
-                                    <a href="#" class="btn btn--promo">Смотреть</a>
+                                    <a href="javascript:void(0);" class="btn btn--promo">Смотреть</a>
                                 </div>
                             </div>
                         </div>
@@ -436,17 +506,17 @@
                     </div>
                     <div class="social-block">
                         <div class="social-icon icon--twitter">
-                            <a href="#">
+                            <a href="javascript:void(0);">
                                 <?php echo file_get_contents("img/social/icon-twitter.svg"); ?>
                             </a>
                         </div>
                         <div class="social-icon icon--facebook">
-                            <a href="#">
+                            <a href="javascript:void(0);">
                                 <?php echo file_get_contents("img/social/icon-facebook.svg"); ?>
                             </a>                            
                         </div>
                         <div class="social-icon icon--vk">
-                            <a href="#">
+                            <a href="javascript:void(0);">
                                 <?php echo file_get_contents("img/social/icon-vk.svg"); ?>
                             </a>                            
                         </div>
@@ -462,8 +532,7 @@
 
         <div class="filter-block__dimmer js-dimm"></div>
     </div>
-
-    <script defer src="js/tabedInterface.js"></script>
+    <script defer src="js/filters.js"></script>
     <script defer src="js/dropdown.js"></script>
 </body>
 </html>
